@@ -1,0 +1,148 @@
+<style>
+  .ann-wrap {
+    background: linear-gradient(135deg, #6b0f0f 0%, #991b1b 50%, #7f1d1d 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 60px 20px 68px;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .ann-wrap::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 10% 30%, rgba(245,158,11,0.20), transparent 45%),
+      radial-gradient(circle at 90% 70%, rgba(245,158,11,0.12), transparent 45%);
+    pointer-events: none;
+  }
+  .ann-wrap::after {
+    content: "";
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #f59e0b, transparent);
+  }
+  .ann-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 44px;
+    align-items: center;
+    position: relative;
+  }
+  .ann-skeleton {
+    border-radius: 18px;
+    aspect-ratio: 16 / 9;
+    background: rgba(255,255,255,0.06);
+    border: 2px dashed rgba(245,158,11,0.40);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+  }
+  .ann-sk-icon { font-size: 2.4rem; opacity: 0.28; }
+  .ann-sk-lines { width: 72%; display: flex; flex-direction: column; gap: 10px; }
+  .ann-sk-line {
+    height: 13px; border-radius: 6px;
+    background-image: linear-gradient(
+      90deg,
+      rgba(255,255,255,0.06) 0%,
+      rgba(255,255,255,0.20) 50%,
+      rgba(255,255,255,0.06) 100%
+    );
+    background-size: 200% 100%;
+    animation: ann-shimmer 1.8s ease-in-out infinite;
+  }
+  .ann-sk-line.w100 { width: 100%; }
+  .ann-sk-line.w70  { width: 70%; }
+  .ann-sk-line.w45  { width: 45%; }
+  .ann-sk-caption {
+    font-size: 0.74rem;
+    color: rgba(245,158,11,0.60);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  @keyframes ann-shimmer {
+    0%   { background-position: 200% center; }
+    100% { background-position: -200% center; }
+  }
+  .ann-content { color: #fff; }
+  .ann-badge {
+    display: inline-block;
+    background: rgba(245,158,11,0.18);
+    border: 1px solid rgba(245,158,11,0.45);
+    color: #f59e0b;
+    padding: 5px 16px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .ann-title {
+    font-size: 1.95rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0 0 14px;
+    color: #fff;
+  }
+  .ann-desc {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.68;
+    margin: 0 0 28px;
+  }
+  .ann-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 13px 26px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.97rem;
+    background: #f59e0b;
+    color: #6b0f0f;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .ann-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(245,158,11,0.45);
+    text-decoration: none;
+    color: #6b0f0f;
+  }
+  .ann-btn::after { content: " →"; }
+  @media (max-width: 720px) {
+    .ann-inner { grid-template-columns: 1fr; gap: 28px; }
+    .ann-skeleton { aspect-ratio: 16 / 8; }
+    .ann-title { font-size: 1.55rem; }
+    .ann-wrap { padding: 44px 20px 52px; }
+  }
+</style>
+
+<section class="ann-wrap">
+  <div class="ann-inner">
+
+    <!-- Replace this div with <img> once the actual event banner image is ready -->
+    <div class="ann-skeleton">
+      <div class="ann-sk-icon">🖼️</div>
+      <div class="ann-sk-lines">
+        <div class="ann-sk-line w100"></div>
+        <div class="ann-sk-line w70"></div>
+        <div class="ann-sk-line w45"></div>
+      </div>
+      <span class="ann-sk-caption">Event Banner · Coming Soon</span>
+    </div>
+
+    <div class="ann-content">
+      <span class="ann-badge">📢 Upcoming Event</span>
+      <h2 class="ann-title">Eid-e-Ghadeer: Hadees Memorization Challenge!</h2>
+      <p class="ann-desc">Learn a Hadees, record your video, and get featured on our Instagram! Gift vouchers for winners and all participants.</p>
+      <a class="ann-btn" href="/event-ghadeer.html">Join the Challenge Now</a>
+    </div>
+
+  </div>
+</section>

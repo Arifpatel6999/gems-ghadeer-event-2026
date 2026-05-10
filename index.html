@@ -3,134 +3,541 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Eid-e-Ghadeer: Hadees Memorization Challenge — TSR GEMS</title>
-<meta name="description" content="Exclusively for boys up to 14 years old. Learn a Hadees, record your video, and get featured on our Instagram!" />
+<title>TSR GEMS — The Strong Rope Youth Initiative</title>
+<meta name="description" content="TSR GEMS is the youth wing of The Strong Rope, striving to sow the seeds of the Mastership of the Ahlul Bait (a.s.) in the hearts of the Shia youth through memorization of Aayat and Hadith." />
 <link rel="icon" href="/assets/logo.jpg" type="image/jpeg" />
-<meta property="og:title" content="Eid-e-Ghadeer: Hadees Memorization Challenge" />
-<meta property="og:description" content="Learn a Hadees, record your video, and get featured on our Instagram! Gift vouchers for winners and all participants." />
-<meta property="og:image" content="/assets/banner.png" />
+<meta property="og:title" content="TSR GEMS" />
+<meta property="og:description" content="Shia youth memorizing Aayat & Hadith — a TSR initiative." />
+<meta property="og:image" content="/assets/logo.jpg" />
 <meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --red-deep:    #7a0c0c;
-    --red-primary: #991b1b;
-    --gold:        #f59e0b;
-    --muted:       #6b3232;
-    --red-border:  rgba(185, 28, 28, 0.18);
+    --teal-900: #0f3a47;
+    --teal-700: #1a5668;
+    --teal-500: #2d7d8f;
+    --gold: #d4a94a;
+    --cream: #f7f3ea;
+    --ink: #162a31;
+    --muted: #5a6e75;
+    --bg: #fbfaf6;
+    --card: #ffffff;
+    --border: rgba(15, 58, 71, 0.12);
+    --shadow: 0 8px 30px rgba(15, 58, 71, 0.08);
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
   body {
-    font-family: 'Inter', system-ui, sans-serif;
-    background: #fff9f9;
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
-  a { text-decoration: none; }
-  .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+  a { color: var(--teal-700); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
 
-  /* Nav */
-  .topbar { background: #fff; border-bottom: 1px solid var(--red-border); padding: 13px 0; }
-  .topbar-inner { display: flex; align-items: center; gap: 12px; }
-  .topbar img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; }
-  .topbar-brand { font-weight: 700; font-size: 0.97rem; color: var(--red-deep); }
-  .topbar-link {
-    margin-left: auto; font-size: 0.86rem; color: var(--muted);
-    display: inline-flex; align-items: center; gap: 4px; transition: color 0.15s;
-  }
-  .topbar-link:hover { color: #dc2626; }
-
-  /* Banner */
-  .banner-wrap { background: var(--red-deep); line-height: 0; }
-  .banner-wrap img { width: 100%; height: auto; display: block; }
-
-  /* Hero strip */
+  /* Hero */
   .hero {
-    background: linear-gradient(135deg, #6b0f0f 0%, #991b1b 100%);
-    padding: 36px 0 42px;
+    background: radial-gradient(ellipse at top, #13485a 0%, var(--teal-900) 60%, #0a2a33 100%);
+    color: var(--cream);
+    padding: 72px 0 88px;
     text-align: center;
     position: relative;
+    overflow: hidden;
   }
-  .hero::after {
+  .hero::before {
     content: "";
-    position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(212, 169, 74, 0.12), transparent 40%),
+      radial-gradient(circle at 85% 70%, rgba(212, 169, 74, 0.08), transparent 40%);
+    pointer-events: none;
   }
-  .hero-badge {
+  .hero > * { position: relative; }
+  .logo {
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.35), 0 0 0 6px rgba(212, 169, 74, 0.18);
+    object-fit: cover;
+    background: #fff;
+  }
+  .wordmark {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin: 24px 0 8px;
+  }
+  .wordmark .gems { color: var(--gold); }
+  .tagline {
+    color: rgba(247, 243, 234, 0.85);
+    font-size: 1.1rem;
+    max-width: 620px;
+    margin: 0 auto 28px;
+  }
+  .verse {
+    margin: 32px auto 0;
+    max-width: 680px;
+    padding: 22px 28px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(212, 169, 74, 0.25);
+    border-radius: 12px;
+  }
+  .verse-ar {
+    font-family: 'Amiri', 'Scheherazade New', serif;
+    font-size: 1.75rem;
+    line-height: 1.9;
+    direction: rtl;
+    color: #fff;
+  }
+  .verse-en {
+    margin-top: 10px;
+    font-style: italic;
+    color: rgba(247, 243, 234, 0.8);
+    font-size: 0.98rem;
+  }
+  .verse-ref {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: var(--gold);
+    letter-spacing: 0.04em;
+  }
+  .cta-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 1px solid transparent;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); text-decoration: none; }
+  .btn-primary { background: var(--gold); color: var(--teal-900); }
+  .btn-primary:hover { box-shadow: 0 6px 18px rgba(212,169,74,0.4); }
+  .btn-ghost { background: transparent; color: var(--cream); border-color: rgba(247,243,234,0.4); }
+  .btn-ghost:hover { background: rgba(255,255,255,0.08); }
+
+  /* Sections */
+  section { padding: 72px 0; }
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 14px;
+    color: var(--teal-900);
+  }
+  .section-title .accent { color: var(--gold); }
+  .section-lead {
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 680px;
+    margin: 0 0 36px;
+  }
+
+  /* About */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .about p { font-size: 1.05rem; }
+  .about .mission-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: var(--shadow);
+  }
+  .about .mission-card h3 {
+    margin-top: 0;
+    color: var(--teal-700);
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* Program */
+  .program {
+    background: linear-gradient(180deg, #fbfaf6 0%, #f1ede1 100%);
+  }
+  .program-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px;
+    box-shadow: var(--shadow);
+  }
+  .pill {
     display: inline-block;
-    background: rgba(245,158,11,0.18); border: 1px solid rgba(245,158,11,0.45);
-    color: var(--gold); padding: 5px 16px; border-radius: 999px;
-    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
-    text-transform: uppercase; margin-bottom: 14px;
+    background: rgba(212, 169, 74, 0.15);
+    color: #8a6b1f;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
   }
-  .hero-title { font-size: 1.9rem; font-weight: 700; color: #fff; margin: 0 0 10px; line-height: 1.25; }
-  .hero-sub { color: rgba(255,255,255,0.80); font-size: 1rem; margin: 0 auto 26px; max-width: 540px; }
+  .program h3 {
+    font-size: 1.6rem;
+    margin: 12px 0 10px;
+    color: var(--teal-900);
+  }
+  .program .locations {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+  }
+  .chip {
+    background: #eef4f5;
+    color: var(--teal-700);
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
 
-  .btn-gold {
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 13px 28px; border-radius: 999px; font-weight: 700; font-size: 0.97rem;
-    background: var(--gold); color: #6b0f0f;
-    transition: transform 0.15s, box-shadow 0.15s;
+  /* Get Involved */
+  .involve-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
   }
-  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,158,11,0.45); color: #6b0f0f; }
+  .involve-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    display: block;
+    color: inherit;
+  }
+  .involve-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+    text-decoration: none;
+  }
+  .involve-card h4 {
+    margin: 8px 0 6px;
+    color: var(--teal-900);
+    font-size: 1.1rem;
+  }
+  .involve-card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+  .involve-card .icon {
+    font-size: 1.6rem;
+    display: inline-block;
+    background: rgba(212, 169, 74, 0.18);
+    color: var(--teal-900);
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    font-weight: 700;
+  }
 
-  /* Social buttons */
-  .socials-row { display: flex; justify-content: center; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
-  .social-btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 9px 20px; border-radius: 999px; font-weight: 600; font-size: 0.88rem;
-    border: 1.5px solid rgba(255,255,255,0.35); color: #fff;
-    background: rgba(255,255,255,0.07);
-    transition: background 0.15s, border-color 0.15s;
+  /* Connect */
+  .connect { background: var(--teal-900); color: var(--cream); }
+  .connect .section-title { color: var(--cream); }
+  .connect .section-lead { color: rgba(247,243,234,0.75); }
+  .socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
   }
-  .social-btn:hover { background: rgba(255,255,255,0.14); border-color: var(--gold); color: #fff; }
+  .social {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(247,243,234,0.18);
+    color: var(--cream);
+    background: rgba(255,255,255,0.04);
+    font-weight: 500;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .social:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--gold);
+    text-decoration: none;
+  }
 
   /* Footer */
-  footer { background: #3d0505; color: rgba(255,248,240,0.55); text-align: center; padding: 20px; font-size: 0.86rem; }
+  footer {
+    background: #0a2a33;
+    color: rgba(247,243,234,0.6);
+    text-align: center;
+    padding: 28px 20px;
+    font-size: 0.9rem;
+  }
   footer a { color: var(--gold); }
 
-  @media (max-width: 600px) {
-    .hero-title { font-size: 1.5rem; }
+  /* ── Event Announcement Banner ── */
+  .ann-wrap {
+    background: linear-gradient(135deg, #6b0f0f 0%, #991b1b 50%, #7f1d1d 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 60px 0 68px;
+  }
+  .ann-wrap::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 10% 30%, rgba(245,158,11,0.20), transparent 45%),
+      radial-gradient(circle at 90% 70%, rgba(245,158,11,0.12), transparent 45%);
+    pointer-events: none;
+  }
+  .ann-wrap::after {
+    content: "";
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #f59e0b, transparent);
+  }
+  .ann-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 44px;
+    align-items: center;
+    position: relative;
+  }
+  .ann-skeleton {
+    border-radius: 18px;
+    aspect-ratio: 16 / 9;
+    background: rgba(255,255,255,0.06);
+    border: 2px dashed rgba(245,158,11,0.40);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+  }
+  .ann-sk-icon { font-size: 2.4rem; opacity: 0.28; }
+  .ann-sk-lines { width: 72%; display: flex; flex-direction: column; gap: 10px; }
+  .ann-sk-line {
+    height: 13px; border-radius: 6px;
+    background-image: linear-gradient(
+      90deg,
+      rgba(255,255,255,0.06) 0%,
+      rgba(255,255,255,0.20) 50%,
+      rgba(255,255,255,0.06) 100%
+    );
+    background-size: 200% 100%;
+    animation: ann-shimmer 1.8s ease-in-out infinite;
+  }
+  .ann-sk-line.w100 { width: 100%; }
+  .ann-sk-line.w70  { width: 70%; }
+  .ann-sk-line.w45  { width: 45%; }
+  .ann-sk-caption {
+    font-size: 0.74rem;
+    color: rgba(245,158,11,0.60);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  @keyframes ann-shimmer {
+    0%   { background-position: 200% center; }
+    100% { background-position: -200% center; }
+  }
+  .ann-content { color: #fff; }
+  .ann-badge {
+    display: inline-block;
+    background: rgba(245,158,11,0.18);
+    border: 1px solid rgba(245,158,11,0.45);
+    color: #f59e0b;
+    padding: 5px 16px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .ann-title {
+    font-size: 1.95rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0 0 14px;
+    color: #fff;
+  }
+  .ann-desc {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.68;
+    margin: 0 0 28px;
+  }
+  .ann-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 13px 26px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.97rem;
+    background: #f59e0b;
+    color: #6b0f0f;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .ann-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(245,158,11,0.45);
+    text-decoration: none;
+    color: #6b0f0f;
+  }
+  .ann-btn::after { content: " →"; }
+
+  @media (max-width: 720px) {
+    .wordmark { font-size: 2.25rem; }
+    .about-grid { grid-template-columns: 1fr; }
+    .verse-ar { font-size: 1.4rem; }
+    section { padding: 56px 0; }
+    .ann-inner { grid-template-columns: 1fr; gap: 28px; }
+    .ann-skeleton { aspect-ratio: 16 / 8; }
+    .ann-title { font-size: 1.55rem; }
+    .ann-wrap { padding: 44px 0 52px; }
   }
 </style>
 </head>
 <body>
 
-<nav class="topbar">
-  <div class="container topbar-inner">
-    <img src="/assets/logo.jpg" alt="TSR GEMS" />
-    <span class="topbar-brand">TSR GEMS</span>
-    <a class="topbar-link" href="https://tsr-gems.com">← TSR GEMS Home</a>
-  </div>
-</nav>
-
-<div class="banner-wrap">
-  <img src="/assets/banner.png" alt="Eid-e-Ghadeer Hadees Memorization Challenge" />
-</div>
-
-<div class="hero">
+<header class="hero">
   <div class="container">
-    <div class="hero-badge">📢 Eid-e-Ghadeer · Upcoming Event</div>
-    <h1 class="hero-title">Hadees Memorization Challenge!</h1>
-    <p class="hero-sub">Exclusively for boys up to 14 years old. Learn a Hadees, record your video, and get featured on our Instagram! Gift vouchers for winners and all participants.</p>
-    <a class="btn-gold" href="event-ghadeer.html">See Full Details →</a>
-    <div class="socials-row">
-      <a class="social-btn" href="#" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
-        Instagram
+    <img class="logo" src="/assets/logo.jpg" alt="TSR GEMS logo" />
+    <h1 class="wordmark">TSR <span class="gems">GEMS</span></h1>
+    <p class="tagline">Shia youth memorizing Aayat &amp; Hadith — sowing the seeds of the Mastership of the Ahlul Bait (a.s.) in young hearts.</p>
+
+    <div class="verse">
+      <div class="verse-ar">وَاعْتَصِمُوا بِحَبْلِ اللَّهِ جَمِيعًا وَلَا تَفَرَّقُوا</div>
+      <div class="verse-en">"And hold fast by the rope of Allah all together and be not disunited."</div>
+      <div class="verse-ref">Surah Aal-e-Imran · Verse 103</div>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://www.instagram.com/thestrongrope_gems/" target="_blank" rel="noopener">Follow on Instagram</a>
+      <a class="btn btn-ghost" href="https://chat.whatsapp.com/DVEWyQxBt62CH8DiyDj6Z2" target="_blank" rel="noopener">Join WhatsApp Community</a>
+    </div>
+  </div>
+</header>
+
+<section class="ann-wrap">
+  <div class="container">
+    <div class="ann-inner">
+
+      <!-- Replace this div with <img> once the event banner image is ready -->
+      <div class="ann-skeleton">
+        <div class="ann-sk-icon">🖼️</div>
+        <div class="ann-sk-lines">
+          <div class="ann-sk-line w100"></div>
+          <div class="ann-sk-line w70"></div>
+          <div class="ann-sk-line w45"></div>
+        </div>
+        <span class="ann-sk-caption">Event Banner · Coming Soon</span>
+      </div>
+
+      <div class="ann-content">
+        <span class="ann-badge">📢 Upcoming Event</span>
+        <h2 class="ann-title">Eid-e-Ghadeer: Hadees Memorization Challenge!</h2>
+        <p class="ann-desc">Learn a Hadees, record your video, and get featured on our Instagram! Gift vouchers for winners and all participants.</p>
+        <a class="ann-btn" href="event-ghadeer.html">Join the Challenge Now</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="container about-grid">
+    <div>
+      <h2 class="section-title">About <span class="accent">TSR GEMS</span></h2>
+      <p>TSR GEMS is the youth wing of <a href="https://thestrongrope.com/" target="_blank" rel="noopener">The Strong Rope</a> — a team striving to sow the seeds of the Mastership of the <strong>Ahlul Bait (a.s.)</strong> in the hearts of the Shia youth, one verse and one tradition at a time.</p>
+      <p>Through memorization programs, community kiosks, and online engagement, we invite young believers to fasten onto the rope of Allah and grow together in knowledge, love, and practice.</p>
+    </div>
+    <aside class="mission-card">
+      <h3>Our Focus</h3>
+      <p style="margin:0;"><strong>Shia · Youth · Memorizing Aayat &amp; Hadith.</strong></p>
+      <p style="margin:12px 0 0; color: var(--muted);">A grassroots effort under the TSR umbrella, led by and for the youth of the community.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="program">
+  <div class="container">
+    <div class="program-card">
+      <span class="pill">Flagship Initiative</span>
+      <h3>Panaah-e-Kainaat (a.t.f.s) Kiosk</h3>
+      <p style="color: var(--muted); max-width: 720px;">A traveling <strong>Traditions Memorization Program</strong> that sets up kiosks in local communities — inviting youth and elders alike to memorize selected ahadith and earn the blessings of spreading the words of the Ahlul Bait (a.s.).</p>
+      <div class="locations">
+        <span class="chip">Mumbai · Bandra</span>
+        <span class="chip">Mumbai · Mumbra</span>
+        <span class="chip">Delhi</span>
+        <span class="chip">…and growing</span>
+      </div>
+      <p style="margin-top: 24px;"><a href="https://www.instagram.com/thestrongrope_gems/" target="_blank" rel="noopener">See the latest kiosks on Instagram →</a></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">Get <span class="accent">Involved</span></h2>
+    <p class="section-lead">Whether you'd like to memorize, host a kiosk, or just follow along — there's a way in for everyone.</p>
+    <div class="involve-grid">
+      <a class="involve-card" href="https://account.thestrongrope.com/login.php" target="_blank" rel="noopener">
+        <span class="icon">✎</span>
+        <h4>Register for the Quiz</h4>
+        <p>Sign up on the TSR portal to take part in memorization quizzes.</p>
       </a>
-      <a class="social-btn" href="#" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#991b1b"/></svg>
-        YouTube
+      <a class="involve-card" href="https://www.youtube.com/c/TheStrongRope?sub_confirmation=1" target="_blank" rel="noopener">
+        <span class="icon">▶</span>
+        <h4>Watch on YouTube</h4>
+        <p>Subscribe to The Strong Rope channel for lessons and recitations.</p>
+      </a>
+      <a class="involve-card" href="https://chat.whatsapp.com/DVEWyQxBt62CH8DiyDj6Z2" target="_blank" rel="noopener">
+        <span class="icon">✉</span>
+        <h4>Join WhatsApp</h4>
+        <p>Get updates and participate in the TSR WhatsApp community.</p>
+      </a>
+      <a class="involve-card" href="https://wa.me/918070151412" target="_blank" rel="noopener">
+        <span class="icon">☎</span>
+        <h4>Contact Us</h4>
+        <p>Message us directly on WhatsApp for any questions or to collaborate.</p>
       </a>
     </div>
   </div>
-</div>
+</section>
+
+<section class="connect">
+  <div class="container">
+    <h2 class="section-title">Connect</h2>
+    <p class="section-lead">Follow TSR GEMS and the wider Strong Rope family across your favourite platforms.</p>
+    <div class="socials">
+      <a class="social" href="https://www.instagram.com/thestrongrope_gems/" target="_blank" rel="noopener">Instagram — @thestrongrope_gems</a>
+      <a class="social" href="https://instagram.com/thestrongrope/" target="_blank" rel="noopener">Instagram — @thestrongrope</a>
+      <a class="social" href="https://www.youtube.com/c/TheStrongRope" target="_blank" rel="noopener">YouTube</a>
+      <a class="social" href="https://t.me/TheStrongRope" target="_blank" rel="noopener">Telegram</a>
+      <a class="social" href="https://www.facebook.com/TheStrongRope/" target="_blank" rel="noopener">Facebook</a>
+      <a class="social" href="https://twitter.com/_TheStrongRope" target="_blank" rel="noopener">Twitter / X</a>
+      <a class="social" href="https://wa.me/918070151412" target="_blank" rel="noopener">WhatsApp · +91 80701 51412</a>
+      <a class="social" href="https://thestrongrope.com/" target="_blank" rel="noopener">thestrongrope.com</a>
+    </div>
+  </div>
+</section>
 
 <footer>
-  <div>© <span id="y"></span> TSR GEMS · <a href="https://thestrongrope.com/" target="_blank" rel="noopener">The Strong Rope</a></div>
+  <div>© <span id="y"></span> TSR GEMS · A youth initiative of <a href="https://thestrongrope.com/" target="_blank" rel="noopener">The Strong Rope</a>.</div>
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </footer>
 
