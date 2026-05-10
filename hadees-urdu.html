@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>احادیث — اردو · TSR GEMS Ghadeer Challenge</title>
+<link rel="icon" href="assets/logo.jpg" type="image/jpeg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --red-deep:    #7a0c0c;
+    --red-primary: #991b1b;
+    --red-vivid:   #dc2626;
+    --red-border:  rgba(185, 28, 28, 0.18);
+    --gold:        #f59e0b;
+    --muted:       #6b3232;
+    --bg:          #fff9f9;
+    --card:        #ffffff;
+    --shadow:      0 6px 24px rgba(122, 12, 12, 0.09);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Noto Nastaliq Urdu', 'Amiri', serif; background: var(--bg); color: #1c0707; line-height: 2; -webkit-font-smoothing: antialiased; }
+  a { color: var(--red-primary); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .container { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+
+  /* Nav — keep LTR for nav */
+  .topbar { background: #fff; border-bottom: 1px solid var(--red-border); padding: 13px 0; direction: ltr; }
+  .topbar-inner { display: flex; align-items: center; gap: 12px; }
+  .topbar img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; }
+  .topbar-brand { font-family: 'Inter', system-ui, sans-serif; font-weight: 700; font-size: 0.97rem; color: var(--red-deep); }
+  .topbar-back { margin-left: auto; font-family: 'Inter', system-ui, sans-serif; font-size: 0.86rem; color: var(--muted); display: inline-flex; align-items: center; gap: 4px; transition: color 0.15s; }
+  .topbar-back:hover { color: var(--red-vivid); text-decoration: none; }
+
+  /* Header */
+  .page-header { background: linear-gradient(135deg, #6b0f0f 0%, #991b1b 100%); padding: 36px 0 40px; text-align: center; position: relative; }
+  .page-header::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .lang-badge { display: inline-block; background: rgba(245,158,11,0.18); border: 1px solid rgba(245,158,11,0.45); color: var(--gold); padding: 5px 16px; border-radius: 999px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 12px; }
+  .page-header h1 { font-size: 1.7rem; font-weight: 700; color: #fff; margin: 0 0 8px; }
+  .page-header p { color: rgba(255,255,255,0.75); font-size: 0.95rem; margin: 0; }
+
+  /* Hadith cards */
+  .hadees-list { padding: 44px 0 56px; display: flex; flex-direction: column; gap: 24px; }
+  .hadees-card { background: var(--card); border: 1px solid var(--red-border); border-radius: 16px; padding: 28px 28px 24px; box-shadow: var(--shadow); }
+  .hadees-num { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--red-primary), var(--red-vivid)); color: #fff; font-family: 'Inter', system-ui, sans-serif; font-weight: 700; font-size: 0.88rem; margin-bottom: 16px; box-shadow: 0 3px 10px rgba(185,28,28,0.28); }
+  .arabic { font-family: 'Amiri', serif; font-size: 1.5rem; line-height: 2.2; text-align: right; color: var(--red-deep); border-bottom: 1px solid var(--red-border); padding-bottom: 14px; margin-bottom: 14px; }
+  .translation { font-size: 1.08rem; color: #2a0a0a; margin-bottom: 10px; text-align: right; }
+  .reference { font-size: 0.85rem; color: var(--muted); text-align: right; }
+
+  footer { background: #3d0505; color: rgba(255,248,240,0.55); text-align: center; padding: 20px; font-size: 0.86rem; direction: ltr; font-family: 'Inter', system-ui, sans-serif; }
+  footer a { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="container topbar-inner">
+    <img src="assets/logo.jpg" alt="TSR GEMS" />
+    <span class="topbar-brand">TSR GEMS</span>
+    <a class="topbar-back" href="event-ghadeer.html">← Back to Event</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <div class="lang-badge">🌐 اردو</div>
+    <h1>احادیث — عید غدیر چیلنج</h1>
+    <p>نیچے دی گئی احادیث میں سے کوئی ایک حدیث یاد کریں اور اپنی ویڈیو میں پڑھیں۔</p>
+  </div>
+</div>
+
+<main>
+  <div class="container hadees-list">
+
+    <div class="hadees-card">
+      <div class="hadees-num">1</div>
+      <div class="arabic">قَالَ رَسُوْلُ اللهِ (ص): مَنْ آذَیْ عَلِیّاً فَقَدْ آذَانِیْ</div>
+      <p class="translation">رسول اللہ (صلی اللہ علیہ وآلہ) نے فرمایا:<br />«جس نے علی (ع) کو اذیت پہنچائی، اُس نے یقیناً مجھے اذیت پہنچائی۔»</p>
+      <div class="reference">بحار الأنوار، ج ۲۸، ص ۴۱۰</div>
+    </div>
+
+    <div class="hadees-card">
+      <div class="hadees-num">2</div>
+      <div class="arabic">قَالَ رَسُوْلُ اللهِ (ص): یَا عَلِیُّ حَاسِدُكَ حَاسِدِیْ وَ حَاسِدِیْ حَاسِدُ اللّٰهِ وَ حَاسِدُ اللّٰهِ فِی النَّارِ</div>
+      <p class="translation">رسول اللہ (صلی اللہ علیہ وآلہ) نے فرمایا:<br />«اے علیؑ! آپ سے حسد كرنے والا، مجھ سے حسد كرنے والا ہے اور مجھ سے حسد كرنے والا، اللہ سے حسد كرنے والا ہے اور اللہ سے حسد كرنے والے كا ٹھكانا جہنم ہے۔»</p>
+      <div class="reference">امالیِ شیخ طوسیؒ، ص ۶۲۴، مجلس ۳۰، حدیث ۱</div>
+    </div>
+
+    <div class="hadees-card">
+      <div class="hadees-num">3</div>
+      <div class="arabic">قَالَ رَسُوْلُ اللهِ (ص): یَا عَلِیُّ سَعِدَ مَنْ تَوَلَّاكَ وَ شَقِیَ مَنْ عَادَاكَ</div>
+      <p class="translation">رسول اللہ (صلی اللہ علیہ وآلہ) نے فرمایا:<br />«اے علیؑ! وہ شخص جنتی ہے جس نے آپ كی ولایت قبول كی، اور وہ جہنمی ہے جس نے آپ سے دشمنی ركھی۔»</p>
+      <div class="reference">امالیِ شیخ صدوقؒ، ص ۲۳، مجلس ۴، حدیث ۸</div>
+    </div>
+
+    <div class="hadees-card">
+      <div class="hadees-num">4</div>
+      <div class="arabic">قَالَ رَسُوْلُ اللهِ (ص): یَا عَلِیُّ شِیعَتُكَ شِیعَةُ اللّٰهِ وَ أَنْصَارُكَ أَنْصَارُ اللّٰهِ</div>
+      <p class="translation">رسول اللہ (صلی اللہ علیہ وآلہ) نے فرمایا:<br />«اے علیؑ! آپ کے شیعہ اللہ کے شیعہ ہیں، اور آپ کے مددگار اللہ کے مددگار ہیں۔»</p>
+      <div class="reference">امالیِ شیخ صدوقؒ، ص ۲۳، مجلس ۴، حدیث ۸</div>
+    </div>
+
+    <div class="hadees-card">
+      <div class="hadees-num">5</div>
+      <div class="arabic">قَالَ رَسُوْلُ اللهِ (ص): یَا عَلِیُّ فَإِنَّ اللّٰهَ قَدْ بَاهَی بِكَ مَلَائِكَتَهُ</div>
+      <p class="translation">رسول اللہ (صلی اللہ علیہ وآلہ) نے فرمایا:<br />«اے علیؑ! بے شک اللہ آپ کی بنا پر اپنے فرشتوں پر فخر و مباہات کرتا ہے۔»</p>
+      <div class="reference">بحار الأنوار، ج ۳۸، ص ۱۰۰، حدیث ۱۹</div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div>© <span id="y"></span> TSR GEMS · <a href="event-ghadeer.html">← Back to Event Page</a></div>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</footer>
+
+</body>
+</html>

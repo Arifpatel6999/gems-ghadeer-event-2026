@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eid-e-Ghadeer: Hadees Memorization Challenge — TSR GEMS</title>
+  <meta name="description"
+    content="Exclusively for boys up to 14 years old. Learn a Hadees, record your video, and get featured on our Instagram! Gift vouchers for winners and all participants." />
+  <link rel="icon" href="assets/logo.jpg" type="image/jpeg" />
+  <meta property="og:title" content="Eid-e-Ghadeer: Hadees Memorization Challenge — TSR GEMS" />
+  <meta property="og:description"
+    content="Learn a Hadees, record your video, and get featured on our Instagram! Gift vouchers for winners and all participants." />
+  <meta property="og:image" content="assets/banner.png" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --red-deep: #7a0c0c;
+      --red-primary: #991b1b;
+      --red-vivid: #dc2626;
+      --red-light: #fef2f2;
+      --red-border: rgba(185, 28, 28, 0.18);
+      --gold: #f59e0b;
+      --muted: #6b3232;
+      --bg: #fff9f9;
+      --card: #ffffff;
+      --shadow: 0 8px 32px rgba(122, 12, 12, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #1c0707;
+      background: var(--bg);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--red-primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Nav */
+    .topbar {
+      background: #fff;
+      border-bottom: 1px solid var(--red-border);
+      padding: 13px 0;
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .topbar img {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .topbar-brand {
+      font-weight: 700;
+      font-size: 0.97rem;
+      color: var(--red-deep);
+    }
+
+    .topbar-back {
+      margin-left: auto;
+      font-size: 0.86rem;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.15s;
+    }
+
+    .topbar-back:hover {
+      color: var(--red-vivid);
+      text-decoration: none;
+    }
+
+    /* Banner image */
+    .banner-wrap {
+      background: var(--red-deep);
+      line-height: 0;
+    }
+
+    .banner-wrap img {
+      width: 100%;
+      height: 380px;
+      display: block;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    /* Hero strip */
+    .hero-strip {
+      background: linear-gradient(135deg, #6b0f0f 0%, #991b1b 100%);
+      padding: 32px 0 36px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-strip::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(245, 158, 11, 0.18);
+      border: 1px solid rgba(245, 158, 11, 0.45);
+      color: var(--gold);
+      padding: 5px 16px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .hero-title {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 10px;
+      line-height: 1.25;
+    }
+
+    .hero-sub {
+      color: rgba(255, 255, 255, 0.80);
+      font-size: 1rem;
+      margin: 0 auto;
+      max-width: 560px;
+    }
+
+    /* Body */
+    .body-wrap {
+      padding: 52px 0 40px;
+    }
+
+    .section-label {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--red-deep);
+      margin: 0 0 6px;
+    }
+
+    .section-label .accent {
+      color: var(--gold);
+    }
+
+    .rule {
+      width: 42px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin: 0 0 26px;
+    }
+
+    /* Steps */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+
+    .step {
+      display: flex;
+      gap: 18px;
+      background: var(--card);
+      border: 1px solid var(--red-border);
+      border-radius: 14px;
+      padding: 20px 22px;
+      box-shadow: var(--shadow);
+      align-items: flex-start;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--red-primary), var(--red-vivid));
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(185, 28, 28, 0.28);
+    }
+
+    .step-body h3 {
+      margin: 0 0 5px;
+      font-size: 1rem;
+      color: var(--red-deep);
+    }
+
+    .step-body p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .step-body ul {
+      margin: 6px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .step-body ul li {
+      margin-bottom: 3px;
+    }
+
+    .step-body strong {
+      color: #3d0505;
+    }
+
+    .note-box {
+      background: #fffbeb;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-left: 4px solid var(--gold);
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-top: 12px;
+      font-size: 0.92rem;
+      color: #6b4c00;
+    }
+
+    /* Dates table */
+    .dates-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 48px;
+      font-size: 0.97rem;
+    }
+
+    .dates-table th {
+      background: var(--red-primary);
+      color: #fff;
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .dates-table th:first-child {
+      border-radius: 10px 0 0 0;
+    }
+
+    .dates-table th:last-child {
+      border-radius: 0 10px 0 0;
+    }
+
+    .dates-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--red-border);
+      background: var(--card);
+      color: #3d0505;
+    }
+
+    .dates-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .dates-table tr:last-child td:first-child {
+      border-radius: 0 0 0 10px;
+    }
+
+    .dates-table tr:last-child td:last-child {
+      border-radius: 0 0 10px 0;
+    }
+
+    /* Prizes */
+    .prizes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+
+    .prize-card {
+      background: var(--card);
+      border: 1px solid var(--red-border);
+      border-radius: 14px;
+      padding: 24px 20px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .prize-card .p-icon {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .prize-card h3 {
+      margin: 0 0 5px;
+      font-size: 0.97rem;
+      color: var(--red-deep);
+    }
+
+    .prize-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.90rem;
+    }
+
+    /* Info box */
+    .info-box {
+      background: var(--red-light);
+      border: 1px solid var(--red-border);
+      border-left: 4px solid var(--red-vivid);
+      border-radius: 12px;
+      padding: 20px 22px;
+      margin-bottom: 48px;
+      font-size: 0.96rem;
+      line-height: 1.75;
+    }
+
+    .info-box strong {
+      color: var(--red-deep);
+    }
+
+    /* Final CTA */
+    .cta-box {
+      text-align: center;
+      background: linear-gradient(135deg, #6b0f0f 0%, #991b1b 100%);
+      border-radius: 20px;
+      padding: 48px 28px;
+      color: #fff;
+      margin-bottom: 56px;
+    }
+
+    .cta-box h2 {
+      font-size: 1.55rem;
+      margin: 0 0 10px;
+    }
+
+    .cta-box p {
+      color: rgba(255, 255, 255, 0.80);
+      margin: 0 0 24px;
+      font-size: 1rem;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      color: #fff;
+      background: rgba(255, 255, 255, 0.07);
+      text-decoration: none;
+      transition: background 0.15s, border-color 0.15s;
+      margin: 4px;
+    }
+
+    .social-btn:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: var(--gold);
+      text-decoration: none;
+      color: #fff;
+    }
+
+    /* Footer */
+    footer {
+      background: #3d0505;
+      color: rgba(255, 248, 240, 0.55);
+      text-align: center;
+      padding: 22px 20px;
+      font-size: 0.86rem;
+    }
+
+    footer a {
+      color: var(--gold);
+    }
+
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: 1.5rem;
+      }
+
+      .banner-wrap img {
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="topbar">
+    <div class="container topbar-inner">
+      <img src="assets/logo.jpg" alt="TSR GEMS" />
+      <span class="topbar-brand">TSR GEMS</span>
+      <a class="topbar-back" href="index.html">← Home</a>
+    </div>
+  </nav>
+
+  <div class="banner-wrap">
+    <img src="assets/banner.png" alt="Eid-e-Ghadeer Hadees Memorization Challenge" />
+  </div>
+
+  <div class="hero-strip">
+    <div class="container">
+      <div class="hero-badge">📢 Eid-e-Ghadeer · Upcoming Event</div>
+      <h1 class="hero-title">Hadees Memorization Challenge!</h1>
+      <p class="hero-sub">Exclusively for boys up to 14 years old. Learn a Hadees, record your video, and get featured
+        on our Instagram!</p>
+    </div>
+  </div>
+
+  <main>
+    <div class="container body-wrap">
+
+      <h2 class="section-label">How to <span class="accent">Participate?</span></h2>
+      <div class="rule"></div>
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3>Choose Your Hadees &amp; Language</h3>
+            <p>Click on the link provided on the website to view the selected Ahadees. Choose your preferred language:
+            </p>
+            <ul>
+              <li><a href="hadees-english.html">English</a></li>
+              <li><a href="hadees-urdu.html">Urdu</a></li>
+              <li><a href="hadees-hindi.html">Hindi</a></li>
+              <li>Gujarati <span style="font-size:0.85em;color:var(--muted);">(coming soon)</span></li>
+              <li>Roman Urdu <span style="font-size:0.85em;color:var(--muted);">(coming soon)</span></li>
+            </ul>
+            <p style="margin-top:8px;"><strong>Audio Support:</strong> An audio file of the Hadees (Arabic with Urdu
+              translation) is also available — listen carefully before recording!</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3>Learn &amp; Practice</h3>
+            <p>Understand the meaning and memorize the Hadees and its translation in the language you selected.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3>Record Your Video <span style="font-weight:400;color:var(--muted);">(Important Instructions)</span></h3>
+            <ul>
+              <li><strong>Phone Position:</strong> Hold your phone vertically (portrait mode).</li>
+              <li><strong>Clear Audio:</strong> Record in a quiet place with no background noise. Your voice must be
+                loud and clear.</li>
+              <li><strong>Be Visible:</strong> Ensure you are properly visible in the video.</li>
+              <li><strong>Accuracy:</strong> Make sure you recite both the Hadees and its translation correctly.</li>
+            </ul>
+            <div class="note-box">
+              ⚠️ <strong>NOTE:</strong> Agar aapne hadees ka arabic ya translation sahi se nahi padha to aapko wapas se
+              record karke bhejne ke liye kaha jaega.
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3>Send to Us</h3>
+            <p>Once your video is ready, send it on WhatsApp: <a href="https://wa.me/918070151412" target="_blank"
+                rel="noopener"><strong>+91 8070 151 412</strong></a></p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <h3>Get Featured</h3>
+            <p>Our team will place your video into the special TSR GEMS template and upload it to our Instagram page.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">6</div>
+          <div class="step-body">
+            <h3>Spread the Message</h3>
+            <p>We'll share the link to your video. Share it on your Instagram Story, send to friends in DM, or tag
+              friends in the comments. <strong>Winners are decided based on Likes.</strong></p>
+          </div>
+        </div>
+
+      </div>
+
+      <h2 class="section-label">Important <span class="accent">Dates</span></h2>
+      <div class="rule"></div>
+      <table class="dates-table">
+        <thead>
+          <tr>
+            <th>Event Phase</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Event Start</td>
+            <td>1 Zilhajj</td>
+          </tr>
+          <tr>
+            <td>Last Date to Submit Video</td>
+            <td>20 Zilhajj</td>
+          </tr>
+          <tr>
+            <td>Winner Announcement</td>
+            <td>24 Zilhajj (Eid-e-Mubahela)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 class="section-label">Prizes &amp; <span class="accent">Vouchers</span></h2>
+      <div class="rule"></div>
+      <div class="prizes-grid">
+        <div class="prize-card">
+          <span class="p-icon">🏆</span>
+          <h3>14 Winners</h3>
+          <p>Top 14 participants with the most likes receive special Gift Vouchers.</p>
+        </div>
+        <div class="prize-card">
+          <span class="p-icon">🎁</span>
+          <h3>All Participants</h3>
+          <p>Every participant who joins receives a Gift Voucher as a token of appreciation.</p>
+        </div>
+        <div class="prize-card">
+          <span class="p-icon">📸</span>
+          <h3>Instagram Feature</h3>
+          <p>Your video gets uploaded to the official TSR GEMS Instagram page.</p>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <strong>📩 Submit your video:</strong> <a href="https://wa.me/918070151412" target="_blank"
+          rel="noopener">WhatsApp +91 8070 151 412</a><br /><br />
+        <strong>📋 Eligible:</strong> Boys up to 14 years old.<br /><br />
+        <strong>🗓️ Deadline:</strong> 20 Zilhajj · Winners announced on 24 Zilhajj (Eid-e-Mubahela).
+      </div>
+
+      <div class="cta-box">
+        <h2>Together, let's make the call of Ghadeer reach every heart!</h2>
+        <p>Like our pages, subscribe, and share with your family and friends.</p>
+        <a class="social-btn" href="https://www.instagram.com/thestrongrope_gems/" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none" />
+          </svg>
+          Instagram
+        </a>
+        <a class="social-btn" href="https://www.youtube.com/c/TheStrongRope" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
+            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#991b1b" />
+          </svg>
+          YouTube
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div>© <span id="y"></span> TSR GEMS · A youth initiative of <a href="https://thestrongrope.com/" target="_blank"
+        rel="noopener">The Strong Rope</a> · <a href="index.html">← Home</a></div>
+    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  </footer>
+
+</body>
+
+</html>
