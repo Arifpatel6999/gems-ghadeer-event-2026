@@ -34,12 +34,17 @@
   .container { max-width: 780px; margin: 0 auto; padding: 0 20px; }
 
   /* Nav */
-  .topbar { background: #fff; border-bottom: 1px solid var(--red-border); padding: 13px 0; }
-  .topbar-inner { display: flex; align-items: center; gap: 12px; }
-  .topbar img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; }
-  .topbar-brand { font-family: 'Inter', system-ui, sans-serif; font-weight: 700; font-size: 0.97rem; color: var(--red-deep); }
-  .topbar-back { margin-left: auto; font-family: 'Inter', system-ui, sans-serif; font-size: 0.86rem; color: var(--muted); display: inline-flex; align-items: center; gap: 4px; transition: color 0.15s; }
-  .topbar-back:hover { color: var(--red-vivid); text-decoration: none; }
+  .site-header { background: #ffffff; border-bottom: 1px solid rgba(15,58,71,0.10); padding: 10px 0; position: sticky; top: 0; z-index: 200; box-shadow: 0 2px 14px rgba(15,58,71,0.07); }
+  .site-header-inner { max-width: 1080px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; gap: 16px; }
+  .site-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+  .site-logo img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+  .site-logo-name { font-weight: 700; font-size: 1rem; color: #0f3a47; }
+  .site-nav { margin-left: auto; display: flex; align-items: center; gap: 4px; }
+  .site-nav a { font-size: 0.86rem; font-weight: 500; color: #5a6e75; text-decoration: none; padding: 7px 13px; border-radius: 999px; transition: background 0.15s, color 0.15s; }
+  .site-nav a:hover { background: rgba(15,58,71,0.07); color: #0f3a47; text-decoration: none; }
+  .site-nav a.nav-cta { background: #0e6da8; color: #fff; font-weight: 600; }
+  .site-nav a.nav-cta:hover { background: #0a5a8f; color: #fff; }
+  @media (max-width: 600px) { .site-logo-name { display: none; } .site-nav a:not(.nav-cta) { display: none; } }
 
   /* Header */
   .page-header { background: linear-gradient(135deg, #6b0f0f 0%, #991b1b 100%); padding: 36px 0 40px; text-align: center; position: relative; }
@@ -62,11 +67,17 @@
 </head>
 <body>
 
-<nav class="topbar">
-  <div class="container topbar-inner">
-    <img src="assets/logo.jpg" alt="TSR GEMS" />
-    <span class="topbar-brand">TSR GEMS</span>
-    <a class="topbar-back" href="event-ghadeer.html">← Back to Event</a>
+<nav class="site-header">
+  <div class="site-header-inner">
+    <a class="site-logo" href="/">
+      <img src="assets/logo.jpg" alt="TSR GEMS logo" />
+      <span class="site-logo-name">TSR GEMS</span>
+    </a>
+    <div class="site-nav">
+      <a href="event-ghadeer.html">Event</a>
+      <a href="https://www.instagram.com/thestrongrope_gems/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/918070151412" target="_blank" rel="noopener" class="nav-cta">Submit Video</a>
+    </div>
   </div>
 </nav>
 

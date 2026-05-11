@@ -461,6 +461,74 @@
     40%, 60%  { opacity: 0.6; transform: scale(1.1) rotate(15deg);  }
   }
 
+  /* ── Site Header ── */
+  .site-header {
+    background: #ffffff;
+    border-bottom: 1px solid rgba(15, 58, 71, 0.10);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    box-shadow: 0 2px 14px rgba(15, 58, 71, 0.07);
+  }
+  .site-header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .site-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .site-logo img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  }
+  .site-logo-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #0f3a47;
+    letter-spacing: 0.01em;
+  }
+  .site-nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .site-nav a {
+    font-size: 0.86rem;
+    font-weight: 500;
+    color: #5a6e75;
+    text-decoration: none;
+    padding: 7px 13px;
+    border-radius: 999px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .site-nav a:hover {
+    background: rgba(15, 58, 71, 0.07);
+    color: #0f3a47;
+    text-decoration: none;
+  }
+  .site-nav a.nav-cta {
+    background: #0e6da8;
+    color: #fff;
+    font-weight: 600;
+  }
+  .site-nav a.nav-cta:hover {
+    background: #0a5a8f;
+    color: #fff;
+  }
+
   @media (max-width: 720px) {
     .wordmark { font-size: 2.25rem; }
     .about-grid { grid-template-columns: 1fr; }
@@ -469,29 +537,26 @@
     .ann-inner { grid-template-columns: 1fr; gap: 28px; }
     .ann-title { font-size: 1.6rem; }
     .ann-wrap { padding: 44px 0 52px; }
+    .site-logo-name { display: none; }
+    .site-nav a:not(.nav-cta) { display: none; }
   }
 </style>
 </head>
 <body>
 
-<header class="hero">
-  <div class="container">
-    <img class="logo" src="/assets/logo.jpg" alt="TSR GEMS logo" />
-    <h1 class="wordmark">TSR <span class="gems">GEMS</span></h1>
-    <p class="tagline">Shia youth memorizing Aayat &amp; Hadith — sowing the seeds of the Mastership of the Ahlul Bait (a.s.) in young hearts.</p>
-
-    <div class="verse">
-      <div class="verse-ar">وَاعْتَصِمُوا بِحَبْلِ اللَّهِ جَمِيعًا وَلَا تَفَرَّقُوا</div>
-      <div class="verse-en">"And hold fast by the rope of Allah all together and be not disunited."</div>
-      <div class="verse-ref">Surah Aal-e-Imran · Verse 103</div>
-    </div>
-
-    <div class="cta-row">
-      <a class="btn btn-primary" href="https://www.instagram.com/thestrongrope_gems/" target="_blank" rel="noopener">Follow on Instagram</a>
-      <a class="btn btn-ghost" href="https://chat.whatsapp.com/DVEWyQxBt62CH8DiyDj6Z2" target="_blank" rel="noopener">Join WhatsApp Community</a>
+<nav class="site-header">
+  <div class="site-header-inner">
+    <a class="site-logo" href="/">
+      <img src="/assets/logo.jpg" alt="TSR GEMS logo" />
+      <span class="site-logo-name">TSR GEMS</span>
+    </a>
+    <div class="site-nav">
+      <a href="event-ghadeer.html">🎉 Ghadeer Event</a>
+      <a href="https://www.instagram.com/thestrongrope_gems/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://chat.whatsapp.com/DVEWyQxBt62CH8DiyDj6Z2" target="_blank" rel="noopener" class="nav-cta">Join WhatsApp</a>
     </div>
   </div>
-</header>
+</nav>
 
 <section class="ann-wrap">
   <div class="ann-glow"></div>
@@ -521,6 +586,25 @@
     </div>
   </div>
 </section>
+
+<header class="hero">
+  <div class="container">
+    <img class="logo" src="/assets/logo.jpg" alt="TSR GEMS logo" />
+    <h1 class="wordmark">TSR <span class="gems">GEMS</span></h1>
+    <p class="tagline">Shia youth memorizing Aayat &amp; Hadith — sowing the seeds of the Mastership of the Ahlul Bait (a.s.) in young hearts.</p>
+
+    <div class="verse">
+      <div class="verse-ar">وَاعْتَصِمُوا بِحَبْلِ اللَّهِ جَمِيعًا وَلَا تَفَرَّقُوا</div>
+      <div class="verse-en">"And hold fast by the rope of Allah all together and be not disunited."</div>
+      <div class="verse-ref">Surah Aal-e-Imran · Verse 103</div>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://www.instagram.com/thestrongrope_gems/" target="_blank" rel="noopener">Follow on Instagram</a>
+      <a class="btn btn-ghost" href="https://chat.whatsapp.com/DVEWyQxBt62CH8DiyDj6Z2" target="_blank" rel="noopener">Join WhatsApp Community</a>
+    </div>
+  </div>
+</header>
 
 <section class="about">
   <div class="container about-grid">
