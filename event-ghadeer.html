@@ -11,7 +11,7 @@
   <meta property="og:title" content="Eid-e-Ghadeer: Hadees Memorization Challenge — TSR GEMS" />
   <meta property="og:description"
     content="Learn a Hadees, record your video, and get featured on our Instagram! Gift vouchers for winners and all participants." />
-  <meta property="og:image" content="assets/banner.png" />
+  <meta property="og:image" content="assets/header-banner.png" />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -112,16 +112,17 @@
 
     /* Banner image */
     .banner-wrap {
-      background: var(--red-deep);
+      background: linear-gradient(180deg, #5bbce4 0%, #3aa8d8 40%, #1a7eb5 100%);
       line-height: 0;
+      overflow: hidden;
     }
 
     .banner-wrap img {
       width: 100%;
-      height: 380px;
+      height: 560px;
       display: block;
       object-fit: cover;
-      object-position: top;
+      object-position: top center;
     }
 
     /* Hero strip */
@@ -418,13 +419,21 @@
       color: var(--gold);
     }
 
+    @media (max-width: 900px) {
+      .banner-wrap img {
+        height: 420px;
+      }
+    }
+
     @media (max-width: 600px) {
       .hero-title {
         font-size: 1.5rem;
       }
 
       .banner-wrap img {
-        height: 220px;
+        height: auto;
+        max-height: 70vw;
+        min-height: 260px;
       }
     }
   </style>
@@ -441,7 +450,7 @@
   </nav>
 
   <div class="banner-wrap">
-    <img src="assets/banner.png" alt="Eid-e-Ghadeer Hadees Memorization Challenge" />
+    <img src="assets/header-banner.png" alt="Eid-e-Ghadeer Hadees Memorization Challenge 2026" />
   </div>
 
   <div class="hero-strip">
