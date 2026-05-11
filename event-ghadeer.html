@@ -46,12 +46,43 @@
       padding: 0;
     }
 
+    html {
+      background: var(--bg);
+    }
+
     body {
       font-family: 'Inter', system-ui, sans-serif;
       color: #1c0707;
-      background: var(--bg);
+      background: transparent;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Parallax background ── */
+    .parallax-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 200vh;
+      z-index: -2;
+      pointer-events: none;
+      will-change: transform;
+    }
+    .parallax-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      filter: saturate(0.85);
+    }
+    /* White wash sits above the image, lets ~38% show through */
+    .page-wash {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: rgba(255, 249, 249, 0.62);
+      pointer-events: none;
     }
 
     a {
@@ -642,6 +673,11 @@
 
 <body>
 
+  <div class="parallax-bg" aria-hidden="true">
+    <img src="assets/gems-bg.png" alt="" />
+  </div>
+  <div class="page-wash" aria-hidden="true"></div>
+
   <nav class="topbar">
     <div class="container topbar-inner">
       <img src="assets/logo.jpg" alt="TSR GEMS" />
@@ -838,6 +874,38 @@
         rel="noopener">The Strong Rope</a> · <a href="/">← Home</a></div>
     <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
   </footer>
+
+  <script>
+    /* Parallax background */
+    (function () {
+      var bg = document.querySelector('.parallax-bg');
+      var wash = document.querySelector('.page-wash');
+      if (!bg) return;
+      var ticking = false;
+
+      function update() {
+        var scrollY = window.scrollY || window.pageYOffset;
+        var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        var progress = maxScroll > 0 ? scrollY / maxScroll : 0;
+
+        /* Move bg upward at 25% of scroll speed */
+        bg.style.transform = 'translateY(' + (scrollY * -0.25) + 'px)';
+
+        /* Slightly increase wash opacity as user scrolls deeper (0.62 → 0.72) */
+        var washOpacity = 0.62 + progress * 0.10;
+        wash.style.background = 'rgba(255,249,249,' + washOpacity.toFixed(3) + ')';
+
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          requestAnimationFrame(update);
+          ticking = true;
+        }
+      }, { passive: true });
+    })();
+  </script>
 
   <script>
     (function () {
