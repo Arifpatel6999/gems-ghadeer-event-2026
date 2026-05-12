@@ -1,693 +1,959 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>TSR GEMS — The Strong Rope Youth Initiative</title>
-<meta name="description" content="TSR GEMS is the youth wing of The Strong Rope, striving to sow the seeds of the Mastership of the Ahlul Bait (a.s.) in the hearts of the Shia youth through memorization of Aayat and Hadith." />
-<link rel="icon" href="/assets/logo.jpg" type="image/jpeg" />
-<meta property="og:title" content="TSR GEMS" />
-<meta property="og:description" content="Shia youth memorizing Aayat & Hadith — a TSR initiative." />
-<meta property="og:image" content="/assets/logo.jpg" />
-<meta property="og:type" content="website" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<style>
-  :root {
-    --teal-900: #0f3a47;
-    --teal-700: #1a5668;
-    --teal-500: #2d7d8f;
-    --gold: #d4a94a;
-    --cream: #f7f3ea;
-    --ink: #162a31;
-    --muted: #5a6e75;
-    --bg: #fbfaf6;
-    --card: #ffffff;
-    --border: rgba(15, 58, 71, 0.12);
-    --shadow: 0 8px 30px rgba(15, 58, 71, 0.08);
-  }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
-  body {
-    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-    color: var(--ink);
-    background: var(--bg);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  a { color: var(--teal-700); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TSR GEMS — The Strong Rope Youth Initiative</title>
+  <meta name="description"
+    content="TSR GEMS is the youth wing of The Strong Rope, striving to sow the seeds of the Mastership of the Ahlul Bait (a.s.) in the hearts of the Shia youth through memorization of Aayat and Hadith." />
+  <link rel="icon" href="/assets/logo.jpg" type="image/jpeg" />
+  <meta property="og:title" content="TSR GEMS" />
+  <meta property="og:description" content="Shia youth memorizing Aayat & Hadith — a TSR initiative." />
+  <meta property="og:image" content="/assets/logo.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --teal-900: #0f3a47;
+      --teal-700: #1a5668;
+      --teal-500: #2d7d8f;
+      --gold: #d4a94a;
+      --cream: #f7f3ea;
+      --ink: #162a31;
+      --muted: #5a6e75;
+      --bg: #fbfaf6;
+      --card: #ffffff;
+      --border: rgba(15, 58, 71, 0.12);
+      --shadow: 0 8px 30px rgba(15, 58, 71, 0.08);
+    }
 
-  /* Hero */
-  .hero {
-    background: radial-gradient(ellipse at top, #13485a 0%, var(--teal-900) 60%, #0a2a33 100%);
-    color: var(--cream);
-    padding: 72px 0 88px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: "";
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(circle at 15% 20%, rgba(212, 169, 74, 0.12), transparent 40%),
-      radial-gradient(circle at 85% 70%, rgba(212, 169, 74, 0.08), transparent 40%);
-    pointer-events: none;
-  }
-  .hero > * { position: relative; }
-  .logo {
-    width: 140px; height: 140px;
-    border-radius: 50%;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.35), 0 0 0 6px rgba(212, 169, 74, 0.18);
-    object-fit: cover;
-    background: #fff;
-  }
-  .wordmark {
-    font-size: 3rem;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    margin: 24px 0 8px;
-  }
-  .wordmark .gems { color: var(--gold); }
-  .tagline {
-    color: rgba(247, 243, 234, 0.85);
-    font-size: 1.1rem;
-    max-width: 620px;
-    margin: 0 auto 28px;
-  }
-  .verse {
-    margin: 32px auto 0;
-    max-width: 680px;
-    padding: 22px 28px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(212, 169, 74, 0.25);
-    border-radius: 12px;
-  }
-  .verse-ar {
-    font-family: 'Amiri', 'Scheherazade New', serif;
-    font-size: 1.75rem;
-    line-height: 1.9;
-    direction: rtl;
-    color: #fff;
-  }
-  .verse-en {
-    margin-top: 10px;
-    font-style: italic;
-    color: rgba(247, 243, 234, 0.8);
-    font-size: 0.98rem;
-  }
-  .verse-ref {
-    margin-top: 8px;
-    font-size: 0.85rem;
-    color: var(--gold);
-    letter-spacing: 0.04em;
-  }
-  .cta-row {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 32px;
-  }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 22px;
-    border-radius: 999px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    border: 1px solid transparent;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-  }
-  .btn:hover { transform: translateY(-1px); text-decoration: none; }
-  .btn-primary { background: var(--gold); color: var(--teal-900); }
-  .btn-primary:hover { box-shadow: 0 6px 18px rgba(212,169,74,0.4); }
-  .btn-ghost { background: transparent; color: var(--cream); border-color: rgba(247,243,234,0.4); }
-  .btn-ghost:hover { background: rgba(255,255,255,0.08); }
+    * {
+      box-sizing: border-box;
+    }
 
-  /* Sections */
-  section { padding: 72px 0; }
-  .section-title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin: 0 0 14px;
-    color: var(--teal-900);
-  }
-  .section-title .accent { color: var(--gold); }
-  .section-lead {
-    color: var(--muted);
-    font-size: 1.05rem;
-    max-width: 680px;
-    margin: 0 0 36px;
-  }
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
 
-  /* About */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 40px;
-    align-items: center;
-  }
-  .about p { font-size: 1.05rem; }
-  .about .mission-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 28px;
-    box-shadow: var(--shadow);
-  }
-  .about .mission-card h3 {
-    margin-top: 0;
-    color: var(--teal-700);
-    font-size: 1.1rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-  /* Program */
-  .program {
-    background: linear-gradient(180deg, #fbfaf6 0%, #f1ede1 100%);
-  }
-  .program-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 36px;
-    box-shadow: var(--shadow);
-  }
-  .pill {
-    display: inline-block;
-    background: rgba(212, 169, 74, 0.15);
-    color: #8a6b1f;
-    padding: 4px 12px;
-    border-radius: 999px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-  .program h3 {
-    font-size: 1.6rem;
-    margin: 12px 0 10px;
-    color: var(--teal-900);
-  }
-  .program .locations {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 20px;
-  }
-  .chip {
-    background: #eef4f5;
-    color: var(--teal-700);
-    padding: 6px 14px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: 500;
-  }
+    a {
+      color: var(--teal-700);
+      text-decoration: none;
+    }
 
-  /* Get Involved */
-  .involve-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-  }
-  .involve-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 24px;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-    display: block;
-    color: inherit;
-  }
-  .involve-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow);
-    text-decoration: none;
-  }
-  .involve-card h4 {
-    margin: 8px 0 6px;
-    color: var(--teal-900);
-    font-size: 1.1rem;
-  }
-  .involve-card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
-  .involve-card .icon {
-    font-size: 1.6rem;
-    display: inline-block;
-    background: rgba(212, 169, 74, 0.18);
-    color: var(--teal-900);
-    width: 44px; height: 44px;
-    border-radius: 10px;
-    display: inline-flex;
-    align-items: center; justify-content: center;
-    font-weight: 700;
-  }
+    a:hover {
+      text-decoration: underline;
+    }
 
-  /* Connect */
-  .connect { background: var(--teal-900); color: var(--cream); }
-  .connect .section-title { color: var(--cream); }
-  .connect .section-lead { color: rgba(247,243,234,0.75); }
-  .socials {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .social {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 18px;
-    border-radius: 10px;
-    border: 1px solid rgba(247,243,234,0.18);
-    color: var(--cream);
-    background: rgba(255,255,255,0.04);
-    font-weight: 500;
-    transition: background 0.15s ease, border-color 0.15s ease;
-  }
-  .social:hover {
-    background: rgba(255,255,255,0.1);
-    border-color: var(--gold);
-    text-decoration: none;
-  }
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-  /* Footer */
-  footer {
-    background: #0a2a33;
-    color: rgba(247,243,234,0.6);
-    text-align: center;
-    padding: 28px 20px;
-    font-size: 0.9rem;
-  }
-  footer a { color: var(--gold); }
+    /* Hero */
+    .hero {
+      background:
+        radial-gradient(circle at 15% 20%, rgba(212, 169, 74, 0.12), transparent 40%),
+        radial-gradient(circle at 85% 70%, rgba(212, 169, 74, 0.08), transparent 40%),
+        linear-gradient(rgba(10, 42, 51, 0.74), rgba(10, 42, 51, 0.80)),
+        url('assets/hero-section-bg-img.jpg.jpeg') center / cover no-repeat;
+      color: var(--cream);
+      padding: 72px 0 88px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
 
-  /* ── Event Announcement Banner ── */
-  .ann-wrap {
-    background: linear-gradient(135deg, #0a3d6b 0%, #0e6da8 45%, #1a8fd1 100%);
-    position: relative;
-    overflow: hidden;
-    padding: 60px 0 68px;
-  }
-  /* Floating confetti dots */
-  .ann-wrap::before {
-    content: "⭐ 🌟 ✨ ⭐ 🌟 ✨ ⭐";
-    position: absolute;
-    top: -10px; left: 0; right: 0;
-    font-size: 1.2rem;
-    letter-spacing: 4rem;
-    opacity: 0.18;
-    white-space: nowrap;
-    animation: ann-float 6s ease-in-out infinite;
-    pointer-events: none;
-  }
-  .ann-wrap::after {
-    content: "";
-    position: absolute; bottom: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, #f5b800, #fff, #f5b800, transparent);
-  }
-  @keyframes ann-float {
-    0%, 100% { transform: translateY(0px); }
-    50%       { transform: translateY(10px); }
-  }
-  /* Radial glows */
-  .ann-glow {
-    position: absolute; inset: 0; pointer-events: none;
-    background:
-      radial-gradient(circle at 8%  25%, rgba(245,184,0,0.18),  transparent 40%),
-      radial-gradient(circle at 92% 75%, rgba(245,184,0,0.12),  transparent 40%),
-      radial-gradient(circle at 50% 50%, rgba(255,255,255,0.04), transparent 60%);
-  }
-  .ann-inner {
-    display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    gap: 48px;
-    align-items: center;
-    position: relative;
-  }
-  /* Banner image */
-  .ann-img-wrap {
-    position: relative;
-    animation: ann-bob 3.6s ease-in-out infinite;
-  }
-  @keyframes ann-bob {
-    0%, 100% { transform: translateY(0px);   }
-    50%       { transform: translateY(-8px);  }
-  }
-  .ann-img-wrap::before {
-    content: "";
-    position: absolute; inset: -6px;
-    border-radius: 24px;
-    background: linear-gradient(135deg, rgba(245,184,0,0.55), rgba(255,255,255,0.15), rgba(245,184,0,0.35));
-    z-index: 0;
-    animation: ann-glow-ring 2.8s ease-in-out infinite;
-  }
-  @keyframes ann-glow-ring {
-    0%, 100% { opacity: 0.7; transform: scale(1);    }
-    50%       { opacity: 1;   transform: scale(1.02); }
-  }
-  .ann-img {
-    width: 100%;
-    border-radius: 18px;
-    display: block;
-    position: relative;
-    z-index: 1;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.35);
-  }
-  /* Content */
-  .ann-content { color: #fff; }
-  .ann-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(245,184,0,0.20);
-    border: 1px solid rgba(245,184,0,0.55);
-    color: #f5d060;
-    padding: 5px 16px;
-    border-radius: 999px;
-    font-size: 0.76rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 18px;
-    animation: ann-pulse-badge 2s ease-in-out infinite;
-  }
-  @keyframes ann-pulse-badge {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(245,184,0,0.4); }
-    50%       { box-shadow: 0 0 0 6px rgba(245,184,0,0); }
-  }
-  .ann-title {
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1.25;
-    margin: 0 0 14px;
-    color: #fff;
-  }
-  .ann-title .ann-highlight {
-    color: #f5b800;
-    text-shadow: 0 2px 12px rgba(245,184,0,0.45);
-  }
-  .ann-desc {
-    font-size: 1.05rem;
-    color: rgba(255,255,255,0.88);
-    line-height: 1.7;
-    margin: 0 0 28px;
-  }
-  .ann-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 26px;
-  }
-  .ann-pill {
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.22);
-    color: #fff;
-    padding: 4px 13px;
-    border-radius: 999px;
-    font-size: 0.82rem;
-    font-weight: 500;
-  }
-  .ann-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 14px 30px;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 1rem;
-    background: linear-gradient(135deg, #f5b800, #ffd84d);
-    color: #0a3d6b;
-    text-decoration: none;
-    box-shadow: 0 4px 20px rgba(245,184,0,0.45);
-    transition: transform 0.18s, box-shadow 0.18s;
-    animation: ann-btn-bounce 2.4s ease-in-out infinite;
-  }
-  @keyframes ann-btn-bounce {
-    0%, 100% { transform: scale(1);    box-shadow: 0 4px 20px rgba(245,184,0,0.45); }
-    50%       { transform: scale(1.04); box-shadow: 0 8px 30px rgba(245,184,0,0.65); }
-  }
-  .ann-btn:hover {
-    transform: scale(1.07) translateY(-2px) !important;
-    box-shadow: 0 10px 32px rgba(245,184,0,0.70) !important;
-    text-decoration: none;
-    color: #0a3d6b;
-    animation: none;
-  }
-  .ann-btn-arrow {
-    display: inline-block;
-    transition: transform 0.18s;
-  }
-  .ann-btn:hover .ann-btn-arrow { transform: translateX(4px); }
+    .hero>* {
+      position: relative;
+    }
 
-  /* Floating star decorations */
-  .ann-star {
-    position: absolute;
-    font-size: 1.4rem;
-    opacity: 0;
-    pointer-events: none;
-    animation: ann-twinkle 3s ease-in-out infinite;
-  }
-  .ann-star:nth-child(1) { top: 12%; left:  6%; animation-delay: 0s;    font-size: 1rem;  }
-  .ann-star:nth-child(2) { top: 20%; right: 5%; animation-delay: 0.7s;  font-size: 1.5rem;}
-  .ann-star:nth-child(3) { bottom: 18%; left: 3%;  animation-delay: 1.4s; font-size: 1.1rem;}
-  .ann-star:nth-child(4) { bottom: 12%; right: 8%; animation-delay: 2s;  font-size: 0.9rem;}
-  @keyframes ann-twinkle {
-    0%, 100% { opacity: 0;    transform: scale(0.7) rotate(0deg);   }
-    40%, 60%  { opacity: 0.6; transform: scale(1.1) rotate(15deg);  }
-  }
+    .logo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35), 0 0 0 6px rgba(212, 169, 74, 0.18);
+      object-fit: cover;
+      background: #fff;
+    }
 
-  /* ── Site Header ── */
-  .site-header {
-    background: #ffffff;
-    border-bottom: 1px solid rgba(15, 58, 71, 0.10);
-    padding: 10px 0;
-    position: sticky;
-    top: 0;
-    z-index: 200;
-    box-shadow: 0 2px 14px rgba(15, 58, 71, 0.07);
-  }
-  .site-header-inner {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .site-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    flex-shrink: 0;
-  }
-  .site-logo img {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-  }
-  .site-logo-name {
-    font-weight: 700;
-    font-size: 1rem;
-    color: #0f3a47;
-    letter-spacing: 0.01em;
-  }
-  .site-nav {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
-  .site-nav a {
-    font-size: 0.86rem;
-    font-weight: 500;
-    color: #5a6e75;
-    text-decoration: none;
-    padding: 7px 13px;
-    border-radius: 999px;
-    transition: background 0.15s, color 0.15s;
-  }
-  .site-nav a:hover {
-    background: rgba(15, 58, 71, 0.07);
-    color: #0f3a47;
-    text-decoration: none;
-  }
-  .site-nav a.nav-cta {
-    background: #0e6da8;
-    color: #fff;
-    font-weight: 600;
-  }
-  .site-nav a.nav-cta:hover {
-    background: #0a5a8f;
-    color: #fff;
-  }
+    .wordmark {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin: 24px 0 8px;
+    }
 
-  @media (max-width: 720px) {
-    .wordmark { font-size: 2.25rem; }
-    .about-grid { grid-template-columns: 1fr; }
-    .verse-ar { font-size: 1.4rem; }
-    section { padding: 56px 0; }
-    .ann-inner { grid-template-columns: 1fr; gap: 28px; }
-    .ann-title { font-size: 1.6rem; }
-    .ann-wrap { padding: 44px 0 52px; }
-    .site-logo-name { display: none; }
-    .site-nav a:not(.nav-cta) { display: none; }
-  }
-</style>
+    .wordmark .gems {
+      color: var(--gold);
+    }
+
+    .tagline {
+      color: rgba(247, 243, 234, 0.85);
+      font-size: 1.1rem;
+      max-width: 620px;
+      margin: 0 auto 28px;
+    }
+
+    .verse {
+      margin: 32px auto 0;
+      max-width: 680px;
+      padding: 22px 28px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(212, 169, 74, 0.25);
+      border-radius: 12px;
+    }
+
+    .verse-ar {
+      font-family: 'Amiri', 'Scheherazade New', serif;
+      font-size: 1.75rem;
+      line-height: 1.9;
+      direction: rtl;
+      color: #fff;
+    }
+
+    .verse-en {
+      margin-top: 10px;
+      font-style: italic;
+      color: rgba(247, 243, 234, 0.8);
+      font-size: 0.98rem;
+    }
+
+    .verse-ref {
+      margin-top: 8px;
+      font-size: 0.85rem;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1px solid transparent;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--teal-900);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 6px 18px rgba(212, 169, 74, 0.4);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--cream);
+      border-color: rgba(247, 243, 234, 0.4);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Sections */
+    section {
+      padding: 72px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0 0 14px;
+      color: var(--teal-900);
+    }
+
+    .section-title .accent {
+      color: var(--gold);
+    }
+
+    .section-lead {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 680px;
+      margin: 0 0 36px;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about p {
+      font-size: 1.05rem;
+    }
+
+    .about .mission-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .about .mission-card h3 {
+      margin-top: 0;
+      color: var(--teal-700);
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* Program */
+    .program {
+      background: linear-gradient(180deg, #fbfaf6 0%, #f1ede1 100%);
+    }
+
+    .program-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px;
+      box-shadow: var(--shadow);
+    }
+
+    .pill {
+      display: inline-block;
+      background: rgba(212, 169, 74, 0.15);
+      color: #8a6b1f;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .program h3 {
+      font-size: 1.6rem;
+      margin: 12px 0 10px;
+      color: var(--teal-900);
+    }
+
+    .program .locations {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .chip {
+      background: #eef4f5;
+      color: var(--teal-700);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* Get Involved */
+    .involve-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .involve-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      display: block;
+      color: inherit;
+    }
+
+    .involve-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+      text-decoration: none;
+    }
+
+    .involve-card h4 {
+      margin: 8px 0 6px;
+      color: var(--teal-900);
+      font-size: 1.1rem;
+    }
+
+    .involve-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .involve-card .icon {
+      font-size: 1.6rem;
+      display: inline-block;
+      background: rgba(212, 169, 74, 0.18);
+      color: var(--teal-900);
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    /* Connect */
+    .connect {
+      background: var(--teal-900);
+      color: var(--cream);
+    }
+
+    .connect .section-title {
+      color: var(--cream);
+    }
+
+    .connect .section-lead {
+      color: rgba(247, 243, 234, 0.75);
+    }
+
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .social {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 10px;
+      border: 1px solid rgba(247, 243, 234, 0.18);
+      color: var(--cream);
+      background: rgba(255, 255, 255, 0.04);
+      font-weight: 500;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .social:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--gold);
+      text-decoration: none;
+    }
+
+    /* Footer */
+    footer {
+      background: #0a2a33;
+      color: rgba(247, 243, 234, 0.6);
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--gold);
+    }
+
+    /* ── Event Announcement Banner ── */
+    .ann-wrap {
+      background: linear-gradient(135deg, #0a3d6b 0%, #0e6da8 45%, #1a8fd1 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 60px 0 68px;
+    }
+
+    /* Floating confetti dots */
+    .ann-wrap::before {
+      content: "⭐ 🌟 ✨ ⭐ 🌟 ✨ ⭐";
+      position: absolute;
+      top: -10px;
+      left: 0;
+      right: 0;
+      font-size: 1.2rem;
+      letter-spacing: 4rem;
+      opacity: 0.18;
+      white-space: nowrap;
+      animation: ann-float 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .ann-wrap::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, #f5b800, #fff, #f5b800, transparent);
+    }
+
+    @keyframes ann-float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(10px);
+      }
+    }
+
+    /* Radial glows */
+    .ann-glow {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 8% 25%, rgba(245, 184, 0, 0.18), transparent 40%),
+        radial-gradient(circle at 92% 75%, rgba(245, 184, 0, 0.12), transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04), transparent 60%);
+    }
+
+    .ann-inner {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Banner image */
+    .ann-img-wrap {
+      position: relative;
+      animation: ann-bob 3.6s ease-in-out infinite;
+    }
+
+    @keyframes ann-bob {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .ann-img-wrap::before {
+      content: "";
+      position: absolute;
+      inset: -6px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(245, 184, 0, 0.55), rgba(255, 255, 255, 0.15), rgba(245, 184, 0, 0.35));
+      z-index: 0;
+      animation: ann-glow-ring 2.8s ease-in-out infinite;
+    }
+
+    @keyframes ann-glow-ring {
+
+      0%,
+      100% {
+        opacity: 0.7;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.02);
+      }
+    }
+
+    .ann-img {
+      width: 100%;
+      border-radius: 18px;
+      display: block;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+    }
+
+    /* Content */
+    .ann-content {
+      color: #fff;
+    }
+
+    .ann-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(245, 184, 0, 0.20);
+      border: 1px solid rgba(245, 184, 0, 0.55);
+      color: #f5d060;
+      padding: 5px 16px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      animation: ann-pulse-badge 2s ease-in-out infinite;
+    }
+
+    @keyframes ann-pulse-badge {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(245, 184, 0, 0.4);
+      }
+
+      50% {
+        box-shadow: 0 0 0 6px rgba(245, 184, 0, 0);
+      }
+    }
+
+    .ann-title {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin: 0 0 14px;
+      color: #fff;
+    }
+
+    .ann-title .ann-highlight {
+      color: #f5b800;
+      text-shadow: 0 2px 12px rgba(245, 184, 0, 0.45);
+    }
+
+    .ann-desc {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.7;
+      margin: 0 0 28px;
+    }
+
+    .ann-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 26px;
+    }
+
+    .ann-pill {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #fff;
+      padding: 4px 13px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+
+    .ann-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 30px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1rem;
+      background: linear-gradient(135deg, #f5b800, #ffd84d);
+      color: #0a3d6b;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(245, 184, 0, 0.45);
+      transition: transform 0.18s, box-shadow 0.18s;
+      animation: ann-btn-bounce 2.4s ease-in-out infinite;
+    }
+
+    @keyframes ann-btn-bounce {
+
+      0%,
+      100% {
+        transform: scale(1);
+        box-shadow: 0 4px 20px rgba(245, 184, 0, 0.45);
+      }
+
+      50% {
+        transform: scale(1.04);
+        box-shadow: 0 8px 30px rgba(245, 184, 0, 0.65);
+      }
+    }
+
+    .ann-btn:hover {
+      transform: scale(1.07) translateY(-2px) !important;
+      box-shadow: 0 10px 32px rgba(245, 184, 0, 0.70) !important;
+      text-decoration: none;
+      color: #0a3d6b;
+      animation: none;
+    }
+
+    .ann-btn-arrow {
+      display: inline-block;
+      transition: transform 0.18s;
+    }
+
+    .ann-btn:hover .ann-btn-arrow {
+      transform: translateX(4px);
+    }
+
+    /* Floating star decorations */
+    .ann-star {
+      position: absolute;
+      font-size: 1.4rem;
+      opacity: 0;
+      pointer-events: none;
+      animation: ann-twinkle 3s ease-in-out infinite;
+    }
+
+    .ann-star:nth-child(1) {
+      top: 12%;
+      left: 6%;
+      animation-delay: 0s;
+      font-size: 1rem;
+    }
+
+    .ann-star:nth-child(2) {
+      top: 20%;
+      right: 5%;
+      animation-delay: 0.7s;
+      font-size: 1.5rem;
+    }
+
+    .ann-star:nth-child(3) {
+      bottom: 18%;
+      left: 3%;
+      animation-delay: 1.4s;
+      font-size: 1.1rem;
+    }
+
+    .ann-star:nth-child(4) {
+      bottom: 12%;
+      right: 8%;
+      animation-delay: 2s;
+      font-size: 0.9rem;
+    }
+
+    @keyframes ann-twinkle {
+
+      0%,
+      100% {
+        opacity: 0;
+        transform: scale(0.7) rotate(0deg);
+      }
+
+      40%,
+      60% {
+        opacity: 0.6;
+        transform: scale(1.1) rotate(15deg);
+      }
+    }
+
+    /* ── Site Header ── */
+    .site-header {
+      background: #ffffff;
+      border-bottom: 1px solid rgba(15, 58, 71, 0.10);
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      box-shadow: 0 2px 14px rgba(15, 58, 71, 0.07);
+    }
+
+    .site-header-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .site-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .site-logo img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    }
+
+    .site-logo-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #0f3a47;
+      letter-spacing: 0.01em;
+    }
+
+    .site-nav {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .site-nav a {
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: #5a6e75;
+      text-decoration: none;
+      padding: 7px 13px;
+      border-radius: 999px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .site-nav a:hover {
+      background: rgba(15, 58, 71, 0.07);
+      color: #0f3a47;
+      text-decoration: none;
+    }
+
+    .site-nav a.nav-cta {
+      background: #0e6da8;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .site-nav a.nav-cta:hover {
+      background: #0a5a8f;
+      color: #fff;
+    }
+
+    @media (max-width: 720px) {
+      .wordmark {
+        font-size: 2.25rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .verse-ar {
+        font-size: 1.4rem;
+      }
+
+      section {
+        padding: 56px 0;
+      }
+
+      .ann-inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .ann-title {
+        font-size: 1.6rem;
+      }
+
+      .ann-wrap {
+        padding: 44px 0 52px;
+      }
+
+      .site-logo-name {
+        display: none;
+      }
+
+      .site-nav a:not(.nav-cta) {
+        display: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<nav class="site-header">
-  <div class="site-header-inner">
-    <a class="site-logo" href="/">
-      <img src="/assets/logo.jpg" alt="TSR GEMS logo" />
-      <span class="site-logo-name">TSR GEMS</span>
-    </a>
-    <div class="site-nav">
-      <a href="event-ghadeer.html">🎉 Ghadeer Event</a>
-      <a href="https://www.instagram.com/thestrongrope_gems/" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://chat.whatsapp.com/DVEWyQxBt62CH8DiyDj6Z2" target="_blank" rel="noopener" class="nav-cta">Join WhatsApp</a>
-    </div>
-  </div>
-</nav>
-
-<section class="ann-wrap">
-  <div class="ann-glow"></div>
-  <span class="ann-star">⭐</span>
-  <span class="ann-star">🌟</span>
-  <span class="ann-star">✨</span>
-  <span class="ann-star">⭐</span>
-  <div class="container">
-    <div class="ann-inner">
-
-      <div class="ann-img-wrap">
-        <img class="ann-img" src="assets/ghadeer-banner.png" alt="Eid-e-Ghadeer Hadees Memorization Challenge 2026" />
+  <nav class="site-header">
+    <div class="site-header-inner">
+      <a class="site-logo" href="/">
+        <img src="/assets/logo.jpg" alt="TSR GEMS logo" />
+        <span class="site-logo-name">TSR GEMS</span>
+      </a>
+      <div class="site-nav">
+        <a href="event-ghadeer.html">🎉 Ghadeer Event</a>
+        <a href="https://www.instagram.com/thestrongrope_gems/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://chat.whatsapp.com/DVEWyQxBt62CH8DiyDj6Z2" target="_blank" rel="noopener" class="nav-cta">Join
+          WhatsApp</a>
       </div>
+    </div>
+  </nav>
 
-      <div class="ann-content">
-        <span class="ann-badge">🎉 Upcoming Event</span>
-        <h2 class="ann-title">Eid-e-Ghadeer:<br /><span class="ann-highlight">Hadees Memorization Challenge!</span></h2>
-        <p class="ann-desc">Learn a Hadees, record your video, and get featured on our Instagram! Gift vouchers for winners and all participants.</p>
-        <div class="ann-pills">
-          <span class="ann-pill">🎁 Gift Vouchers</span>
-          <span class="ann-pill">📱 Boys up to 14</span>
-          <span class="ann-pill">🌐 5 Languages</span>
+  <section class="ann-wrap">
+    <div class="ann-glow"></div>
+    <span class="ann-star">⭐</span>
+    <span class="ann-star">🌟</span>
+    <span class="ann-star">✨</span>
+    <span class="ann-star">⭐</span>
+    <div class="container">
+      <div class="ann-inner">
+
+        <div class="ann-img-wrap">
+          <img class="ann-img" src="assets/WEB-Ghadeer-2026.jpg.jpeg"
+            alt="Eid-e-Ghadeer Hadees Memorization Challenge 2026" />
         </div>
-        <a class="ann-btn" href="event-ghadeer.html">Join the Challenge Now <span class="ann-btn-arrow">→</span></a>
+
+        <div class="ann-content">
+          <span class="ann-badge">🎉 Upcoming Event</span>
+          <h2 class="ann-title">Eid-e-Ghadeer:<br /><span class="ann-highlight">Hadees Memorization Challenge!</span>
+          </h2>
+          <p class="ann-desc">Learn a Hadees, record your video, and get featured on our Instagram! Gift vouchers for
+            winners and all participants.</p>
+          <div class="ann-pills">
+            <span class="ann-pill">🎁 Gift Vouchers</span>
+            <span class="ann-pill">📱 Boys up to 14</span>
+            <span class="ann-pill">🌐 5 Languages</span>
+          </div>
+          <a class="ann-btn" href="event-ghadeer.html">Join the Challenge Now <span class="ann-btn-arrow">→</span></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <header class="hero">
+    <div class="container">
+      <img class="logo" src="/assets/logo.jpg" alt="TSR GEMS logo" />
+      <h1 class="wordmark">TSR <span class="gems">GEMS</span></h1>
+      <p class="tagline">Shia youth memorizing Aayat &amp; Hadith — sowing the seeds of the Mastership of the Ahlul Bait
+        (a.s.) in young hearts.</p>
+
+      <div class="verse">
+        <div class="verse-ar">وَاعْتَصِمُوا بِحَبْلِ اللَّهِ جَمِيعًا وَلَا تَفَرَّقُوا</div>
+        <div class="verse-en">"And hold fast by the rope of Allah all together and be not disunited."</div>
+        <div class="verse-ref">Surah Aal-e-Imran · Verse 103</div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<header class="hero">
-  <div class="container">
-    <img class="logo" src="/assets/logo.jpg" alt="TSR GEMS logo" />
-    <h1 class="wordmark">TSR <span class="gems">GEMS</span></h1>
-    <p class="tagline">Shia youth memorizing Aayat &amp; Hadith — sowing the seeds of the Mastership of the Ahlul Bait (a.s.) in young hearts.</p>
-
-    <div class="verse">
-      <div class="verse-ar">وَاعْتَصِمُوا بِحَبْلِ اللَّهِ جَمِيعًا وَلَا تَفَرَّقُوا</div>
-      <div class="verse-en">"And hold fast by the rope of Allah all together and be not disunited."</div>
-      <div class="verse-ref">Surah Aal-e-Imran · Verse 103</div>
-    </div>
-
-    <div class="cta-row">
-      <a class="btn btn-primary" href="https://www.instagram.com/thestrongrope_gems/" target="_blank" rel="noopener">Follow on Instagram</a>
-      <a class="btn btn-ghost" href="https://chat.whatsapp.com/DVEWyQxBt62CH8DiyDj6Z2" target="_blank" rel="noopener">Join WhatsApp Community</a>
-    </div>
-  </div>
-</header>
-
-<section class="about">
-  <div class="container about-grid">
-    <div>
-      <h2 class="section-title">About <span class="accent">TSR GEMS</span></h2>
-      <p>TSR GEMS is the youth wing of <a href="https://thestrongrope.com/" target="_blank" rel="noopener">The Strong Rope</a> — a team striving to sow the seeds of the Mastership of the <strong>Ahlul Bait (a.s.)</strong> in the hearts of the Shia youth, one verse and one tradition at a time.</p>
-      <p>Through memorization programs, community kiosks, and online engagement, we invite young believers to fasten onto the rope of Allah and grow together in knowledge, love, and practice.</p>
-    </div>
-    <aside class="mission-card">
-      <h3>Our Focus</h3>
-      <p style="margin:0;"><strong>Shia · Youth · Memorizing Aayat &amp; Hadith.</strong></p>
-      <p style="margin:12px 0 0; color: var(--muted);">A grassroots effort under the TSR umbrella, led by and for the youth of the community.</p>
-    </aside>
-  </div>
-</section>
-
-<section class="program">
-  <div class="container">
-    <div class="program-card">
-      <span class="pill">Flagship Initiative</span>
-      <h3>Panaah-e-Kainaat (a.t.f.s) Kiosk</h3>
-      <p style="color: var(--muted); max-width: 720px;">A traveling <strong>Traditions Memorization Program</strong> that sets up kiosks in local communities — inviting youth and elders alike to memorize selected ahadith and earn the blessings of spreading the words of the Ahlul Bait (a.s.).</p>
-      <div class="locations">
-        <span class="chip">Mumbai · Bandra</span>
-        <span class="chip">Mumbai · Mumbra</span>
-        <span class="chip">Delhi</span>
-        <span class="chip">…and growing</span>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://www.instagram.com/thestrongrope_gems/" target="_blank"
+          rel="noopener">Follow on Instagram</a>
+        <a class="btn btn-ghost" href="https://chat.whatsapp.com/DVEWyQxBt62CH8DiyDj6Z2" target="_blank"
+          rel="noopener">Join WhatsApp Community</a>
       </div>
-      <p style="margin-top: 24px;"><a href="https://www.instagram.com/thestrongrope_gems/" target="_blank" rel="noopener">See the latest kiosks on Instagram →</a></p>
     </div>
-  </div>
-</section>
+  </header>
 
-<section>
-  <div class="container">
-    <h2 class="section-title">Get <span class="accent">Involved</span></h2>
-    <p class="section-lead">Whether you'd like to memorize, host a kiosk, or just follow along — there's a way in for everyone.</p>
-    <div class="involve-grid">
-      <a class="involve-card" href="https://account.thestrongrope.com/login.php" target="_blank" rel="noopener">
-        <span class="icon">✎</span>
-        <h4>Register for the Quiz</h4>
-        <p>Sign up on the TSR portal to take part in memorization quizzes.</p>
-      </a>
-      <a class="involve-card" href="https://www.youtube.com/c/TheStrongRope?sub_confirmation=1" target="_blank" rel="noopener">
-        <span class="icon">▶</span>
-        <h4>Watch on YouTube</h4>
-        <p>Subscribe to The Strong Rope channel for lessons and recitations.</p>
-      </a>
-      <a class="involve-card" href="https://chat.whatsapp.com/DVEWyQxBt62CH8DiyDj6Z2" target="_blank" rel="noopener">
-        <span class="icon">✉</span>
-        <h4>Join WhatsApp</h4>
-        <p>Get updates and participate in the TSR WhatsApp community.</p>
-      </a>
-      <a class="involve-card" href="https://wa.me/918070151412" target="_blank" rel="noopener">
-        <span class="icon">☎</span>
-        <h4>Contact Us</h4>
-        <p>Message us directly on WhatsApp for any questions or to collaborate.</p>
-      </a>
+  <section class="about">
+    <div class="container about-grid">
+      <div>
+        <h2 class="section-title">About <span class="accent">TSR GEMS</span></h2>
+        <p>TSR GEMS is the youth wing of <a href="https://thestrongrope.com/" target="_blank" rel="noopener">The Strong
+            Rope</a> — a team striving to sow the seeds of the Mastership of the <strong>Ahlul Bait (a.s.)</strong> in
+          the hearts of the Shia youth, one verse and one tradition at a time.</p>
+        <p>Through memorization programs, community kiosks, and online engagement, we invite young believers to fasten
+          onto the rope of Allah and grow together in knowledge, love, and practice.</p>
+      </div>
+      <aside class="mission-card">
+        <h3>Our Focus</h3>
+        <p style="margin:0;"><strong>Shia · Youth · Memorizing Aayat &amp; Hadith.</strong></p>
+        <p style="margin:12px 0 0; color: var(--muted);">A grassroots effort under the TSR umbrella, led by and for the
+          youth of the community.</p>
+      </aside>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="connect">
-  <div class="container">
-    <h2 class="section-title">Connect</h2>
-    <p class="section-lead">Follow TSR GEMS and the wider Strong Rope family across your favourite platforms.</p>
-    <div class="socials">
-      <a class="social" href="https://www.instagram.com/thestrongrope_gems/" target="_blank" rel="noopener">Instagram — @thestrongrope_gems</a>
-      <a class="social" href="https://instagram.com/thestrongrope/" target="_blank" rel="noopener">Instagram — @thestrongrope</a>
-      <a class="social" href="https://www.youtube.com/c/TheStrongRope" target="_blank" rel="noopener">YouTube</a>
-      <a class="social" href="https://t.me/TheStrongRope" target="_blank" rel="noopener">Telegram</a>
-      <a class="social" href="https://www.facebook.com/TheStrongRope/" target="_blank" rel="noopener">Facebook</a>
-      <a class="social" href="https://twitter.com/_TheStrongRope" target="_blank" rel="noopener">Twitter / X</a>
-      <a class="social" href="https://wa.me/918070151412" target="_blank" rel="noopener">WhatsApp · +91 80701 51412</a>
-      <a class="social" href="https://thestrongrope.com/" target="_blank" rel="noopener">thestrongrope.com</a>
+  <section class="program">
+    <div class="container">
+      <div class="program-card">
+        <span class="pill">Flagship Initiative</span>
+        <h3>Panaah-e-Kainaat (a.t.f.s) Kiosk</h3>
+        <p style="color: var(--muted); max-width: 720px;">A traveling <strong>Traditions Memorization Program</strong>
+          that sets up kiosks in local communities — inviting youth and elders alike to memorize selected ahadith and
+          earn the blessings of spreading the words of the Ahlul Bait (a.s.).</p>
+        <div class="locations">
+          <span class="chip">Mumbai · Bandra</span>
+          <span class="chip">Mumbai · Mumbra</span>
+          <span class="chip">Delhi</span>
+          <span class="chip">…and growing</span>
+        </div>
+        <p style="margin-top: 24px;"><a href="https://www.instagram.com/thestrongrope_gems/" target="_blank"
+            rel="noopener">See the latest kiosks on Instagram →</a></p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <div>© <span id="y"></span> TSR GEMS · A youth initiative of <a href="https://thestrongrope.com/" target="_blank" rel="noopener">The Strong Rope</a>.</div>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
-</footer>
+  <section>
+    <div class="container">
+      <h2 class="section-title">Get <span class="accent">Involved</span></h2>
+      <p class="section-lead">Whether you'd like to memorize, host a kiosk, or just follow along — there's a way in for
+        everyone.</p>
+      <div class="involve-grid">
+        <a class="involve-card" href="https://account.thestrongrope.com/login.php" target="_blank" rel="noopener">
+          <span class="icon">✎</span>
+          <h4>Register for the Quiz</h4>
+          <p>Sign up on the TSR portal to take part in memorization quizzes.</p>
+        </a>
+        <a class="involve-card" href="https://www.youtube.com/c/TheStrongRope?sub_confirmation=1" target="_blank"
+          rel="noopener">
+          <span class="icon">▶</span>
+          <h4>Watch on YouTube</h4>
+          <p>Subscribe to The Strong Rope channel for lessons and recitations.</p>
+        </a>
+        <a class="involve-card" href="https://chat.whatsapp.com/DVEWyQxBt62CH8DiyDj6Z2" target="_blank" rel="noopener">
+          <span class="icon">✉</span>
+          <h4>Join WhatsApp</h4>
+          <p>Get updates and participate in the TSR WhatsApp community.</p>
+        </a>
+        <a class="involve-card" href="https://wa.me/918070151412" target="_blank" rel="noopener">
+          <span class="icon">☎</span>
+          <h4>Contact Us</h4>
+          <p>Message us directly on WhatsApp for any questions or to collaborate.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="connect">
+    <div class="container">
+      <h2 class="section-title">Connect</h2>
+      <p class="section-lead">Follow TSR GEMS and the wider Strong Rope family across your favourite platforms.</p>
+      <div class="socials">
+        <a class="social" href="https://www.instagram.com/thestrongrope_gems/" target="_blank" rel="noopener">Instagram
+          — @thestrongrope_gems</a>
+        <a class="social" href="https://instagram.com/thestrongrope/" target="_blank" rel="noopener">Instagram —
+          @thestrongrope</a>
+        <a class="social" href="https://www.youtube.com/c/TheStrongRope" target="_blank" rel="noopener">YouTube</a>
+        <a class="social" href="https://t.me/TheStrongRope" target="_blank" rel="noopener">Telegram</a>
+        <a class="social" href="https://www.facebook.com/TheStrongRope/" target="_blank" rel="noopener">Facebook</a>
+        <a class="social" href="https://twitter.com/_TheStrongRope" target="_blank" rel="noopener">Twitter / X</a>
+        <a class="social" href="https://wa.me/918070151412" target="_blank" rel="noopener">WhatsApp · +91 80701
+          51412</a>
+        <a class="social" href="https://thestrongrope.com/" target="_blank" rel="noopener">thestrongrope.com</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>© <span id="y"></span> TSR GEMS · A youth initiative of <a href="https://thestrongrope.com/" target="_blank"
+        rel="noopener">The Strong Rope</a>.</div>
+    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  </footer>
 
 </body>
+
 </html>
