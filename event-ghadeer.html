@@ -18,6 +18,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     @font-face {
+      font-family: 'AlviNastaleeq';
+      src: url('assets/AlviNastaleeq.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
       font-family: 'MuhammadiQuranic';
       src: url('assets/MuhammadiQuranic.ttf') format('truetype');
       font-weight: normal;
@@ -377,6 +383,7 @@
     }
 
     .lang-btn-name { font-weight: 700; }
+    .lang-btn-name[lang="ur"], .lang-btn-hint[lang="ur"] { font-family: 'AlviNastaleeq', 'Amiri', serif; font-size: 1.05rem; }
 
     .lang-btn-hint {
       font-size: 0.75rem;
@@ -857,9 +864,9 @@
                 </span>
               </a>
               <a class="lang-btn" href="hadees-urdu.html">
-                <span class="lang-btn-name">🌐 اردو</span>
+                <span class="lang-btn-name" lang="ur">🌐 اردو</span>
                 <span style="display:flex;align-items:center">
-                  <span class="lang-btn-hint">حدیث دیکھنے کے لیے دبائیں</span>
+                  <span class="lang-btn-hint" lang="ur">حدیث دیکھنے کے لیے دبائیں</span>
                   <span class="lang-btn-arrow">→</span>
                   <span class="lang-btn-tap">👆</span>
                 </span>
