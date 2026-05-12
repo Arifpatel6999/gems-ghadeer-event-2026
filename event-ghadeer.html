@@ -271,6 +271,7 @@
 
     .step {
       display: flex;
+      flex-direction: column;
       gap: 18px;
       background: var(--card);
       border: 1px solid var(--red-border);
@@ -303,6 +304,12 @@
       box-shadow: 0 4px 12px rgba(185, 28, 28, 0.28);
     }
 
+    .step-body {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      width: 100%;
+    }
+
     .step-body h3 {
       margin: 0 0 5px;
       font-size: 1rem;
@@ -324,6 +331,87 @@
 
     .step-body ul li {
       margin-bottom: 3px;
+    }
+
+    /* Language links — vertical list */
+    .lang-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 14px 0 4px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(185, 28, 28, 0.14);
+    }
+
+    .lang-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11px 16px;
+      background: #fff;
+      color: var(--red-deep);
+      font-weight: 600;
+      font-size: 0.97rem;
+      text-decoration: none;
+      border-left: 3px solid transparent;
+      border-bottom: 1px solid rgba(185, 28, 28, 0.09);
+      transition: background 0.15s, border-left-color 0.15s, padding-left 0.15s;
+      animation: lang-border-pulse 2.6s ease-in-out infinite;
+    }
+
+    .lang-btn:last-child { border-bottom: none; }
+
+    @keyframes lang-border-pulse {
+      0%, 100% { border-left-color: rgba(185, 28, 28, 0.20); }
+      50%       { border-left-color: rgba(185, 28, 28, 0.75); }
+    }
+
+    .lang-btn:hover {
+      animation: none;
+      background: rgba(153, 27, 27, 0.05);
+      border-left-color: var(--red-vivid);
+      padding-left: 22px;
+      text-decoration: none;
+      color: var(--red-deep);
+    }
+
+    .lang-btn-name { font-weight: 700; }
+
+    .lang-btn-hint {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--muted);
+      font-style: italic;
+      white-space: nowrap;
+      margin-left: 12px;
+    }
+
+    .lang-btn-arrow {
+      font-size: 0.8rem;
+      color: var(--red-vivid);
+      opacity: 0.5;
+      margin-left: 8px;
+      transition: transform 0.15s, opacity 0.15s;
+    }
+
+    .lang-btn:hover .lang-btn-arrow {
+      transform: translateX(4px);
+      opacity: 1;
+    }
+
+    .lang-btn-tap {
+      display: none;
+      font-size: 1.1rem;
+      margin-left: 8px;
+      animation: tap-press 1.4s ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+
+    @keyframes tap-press {
+      0%, 100% { transform: scale(1) translateY(0);    opacity: 1; }
+      30%       { transform: scale(0.78) translateY(3px); opacity: 0.7; }
+      55%       { transform: scale(1.1) translateY(-2px); opacity: 1; }
     }
 
     .step-body strong {
@@ -595,6 +683,12 @@
     }
 
     @media (max-width: 600px) {
+      /* Language links — mobile: hide hint+arrow, show tap icon */
+      .lang-btn-hint  { display: none; }
+      .lang-btn-arrow { display: none; }
+      .lang-btn-tap   { display: inline-block; }
+      .lang-btn { font-size: 0.95rem; }
+
       /* Banner */
       .banner-wrap img {
         height: auto;
@@ -753,13 +847,48 @@
             <h3>Choose Your Hadees &amp; Language</h3>
             <p>Click on the link provided on the website to view the selected Ahadees. Choose your preferred language:
             </p>
-            <ul>
-              <li><a href="hadees-english.html">English</a></li>
-              <li><a href="hadees-urdu.html">Urdu</a></li>
-              <li><a href="hadees-hindi.html">Hindi</a></li>
-              <li><a href="hadees-gujarati.html">Gujarati</a></li>
-              <li><a href="hadees-roman-urdu.html">Roman Urdu</a></li>
-            </ul>
+            <div class="lang-links">
+              <a class="lang-btn" href="hadees-english.html">
+                <span class="lang-btn-name">🌐 English</span>
+                <span style="display:flex;align-items:center">
+                  <span class="lang-btn-hint">tap to view hadees</span>
+                  <span class="lang-btn-arrow">→</span>
+                  <span class="lang-btn-tap">👆</span>
+                </span>
+              </a>
+              <a class="lang-btn" href="hadees-urdu.html">
+                <span class="lang-btn-name">🌐 اردو</span>
+                <span style="display:flex;align-items:center">
+                  <span class="lang-btn-hint">حدیث دیکھنے کے لیے دبائیں</span>
+                  <span class="lang-btn-arrow">→</span>
+                  <span class="lang-btn-tap">👆</span>
+                </span>
+              </a>
+              <a class="lang-btn" href="hadees-hindi.html">
+                <span class="lang-btn-name">🌐 हिंदी</span>
+                <span style="display:flex;align-items:center">
+                  <span class="lang-btn-hint">हदीस देखने के लिए दबाएँ</span>
+                  <span class="lang-btn-arrow">→</span>
+                  <span class="lang-btn-tap">👆</span>
+                </span>
+              </a>
+              <a class="lang-btn" href="hadees-gujarati.html">
+                <span class="lang-btn-name">🌐 ગુજરાતી</span>
+                <span style="display:flex;align-items:center">
+                  <span class="lang-btn-hint">હદીસ જોવા માટે દબાવો</span>
+                  <span class="lang-btn-arrow">→</span>
+                  <span class="lang-btn-tap">👆</span>
+                </span>
+              </a>
+              <a class="lang-btn" href="hadees-roman-urdu.html">
+                <span class="lang-btn-name">🌐 Roman Urdu</span>
+                <span style="display:flex;align-items:center">
+                  <span class="lang-btn-hint">hadees dekhne ke liye dabayein</span>
+                  <span class="lang-btn-arrow">→</span>
+                  <span class="lang-btn-tap">👆</span>
+                </span>
+              </a>
+            </div>
             <p style="margin-top:8px;"><strong>Audio Support:</strong> An audio file of the Hadees (Arabic with Urdu
               translation) is also available — listen carefully before recording!</p>
           </div>
