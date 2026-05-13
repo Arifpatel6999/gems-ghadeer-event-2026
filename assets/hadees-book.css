@@ -211,7 +211,7 @@ a:hover {
 
 .book-outer {
   width: 100%;
-  max-width: 640px;
+  max-width: 704px;
   margin: 0 auto;
   position: relative;
 }
@@ -491,7 +491,7 @@ a:hover {
 }
 
 .translation {
-  font-size: 0.82rem;
+  font-size: 0.72rem;
   color: #3a1a00;
   line-height: 1.72;
   margin: 0;
@@ -608,7 +608,7 @@ a:hover {
   align-items: center;
   gap: 10px;
   width: 100%;
-  max-width: 640px;
+  max-width: 704px;
   margin: 14px auto 0;
   padding: 10px 14px;
   background: #fff;
