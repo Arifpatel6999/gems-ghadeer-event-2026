@@ -23,12 +23,14 @@
       font-weight: normal;
       font-style: normal;
     }
+
     @font-face {
       font-family: 'MuhammadiQuranic';
       src: url('assets/MuhammadiQuranic.ttf') format('truetype');
       font-weight: normal;
       font-style: normal;
     }
+
     :root {
       --red-deep: #7a0c0c;
       --red-primary: #991b1b;
@@ -75,6 +77,7 @@
       pointer-events: none;
       will-change: transform;
     }
+
     .parallax-bg img {
       width: 100%;
       height: 100%;
@@ -82,6 +85,7 @@
       object-position: center 30%;
       filter: saturate(0.85);
     }
+
     /* White wash sits above the image, lets ~38% show through */
     .page-wash {
       position: fixed;
@@ -116,6 +120,7 @@
       z-index: 200;
       box-shadow: 0 2px 14px rgba(15, 58, 71, 0.07);
     }
+
     .site-header-inner {
       max-width: 1080px;
       margin: 0 auto;
@@ -124,6 +129,7 @@
       align-items: center;
       gap: 16px;
     }
+
     .site-logo {
       display: flex;
       align-items: center;
@@ -131,25 +137,29 @@
       text-decoration: none;
       flex-shrink: 0;
     }
+
     .site-logo img {
       width: 38px;
       height: 38px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
     }
+
     .site-logo-name {
       font-weight: 700;
       font-size: 1rem;
       color: #0f3a47;
       letter-spacing: 0.01em;
     }
+
     .site-nav {
       margin-left: auto;
       display: flex;
       align-items: center;
       gap: 4px;
     }
+
     .site-nav a {
       font-size: 0.86rem;
       font-weight: 500;
@@ -159,23 +169,32 @@
       border-radius: 999px;
       transition: background 0.15s, color 0.15s;
     }
+
     .site-nav a:hover {
       background: rgba(15, 58, 71, 0.07);
       color: #0f3a47;
       text-decoration: none;
     }
+
     .site-nav a.nav-cta {
       background: #0e6da8;
       color: #fff;
       font-weight: 600;
     }
+
     .site-nav a.nav-cta:hover {
       background: #0a5a8f;
       color: #fff;
     }
+
     @media (max-width: 600px) {
-      .site-logo-name { display: none; }
-      .site-nav a:not(.nav-cta) { display: none; }
+      .site-logo-name {
+        display: none;
+      }
+
+      .site-nav a:not(.nav-cta) {
+        display: none;
+      }
     }
 
     /* Banner image */
@@ -287,10 +306,12 @@
       align-items: flex-start;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+
     .step:hover {
       transform: translateX(5px);
       box-shadow: 0 10px 32px rgba(122, 12, 12, 0.16);
     }
+
     .step:hover .step-num {
       animation: num-pop 0.38s ease;
     }
@@ -366,11 +387,20 @@
       animation: lang-border-pulse 2.6s ease-in-out infinite;
     }
 
-    .lang-btn:last-child { border-bottom: none; }
+    .lang-btn:last-child {
+      border-bottom: none;
+    }
 
     @keyframes lang-border-pulse {
-      0%, 100% { border-left-color: rgba(185, 28, 28, 0.20); }
-      50%       { border-left-color: rgba(185, 28, 28, 0.75); }
+
+      0%,
+      100% {
+        border-left-color: rgba(185, 28, 28, 0.20);
+      }
+
+      50% {
+        border-left-color: rgba(185, 28, 28, 0.75);
+      }
     }
 
     .lang-btn:hover {
@@ -382,8 +412,15 @@
       color: var(--red-deep);
     }
 
-    .lang-btn-name { font-weight: 700; }
-    .lang-btn-name[lang="ur"], .lang-btn-hint[lang="ur"] { font-family: 'AlviNastaleeq', 'Amiri', serif; font-size: 1.05rem; }
+    .lang-btn-name {
+      font-weight: 700;
+    }
+
+    .lang-btn-name[lang="ur"],
+    .lang-btn-hint[lang="ur"] {
+      font-family: 'AlviNastaleeq', 'Amiri', serif;
+      font-size: 1.05rem;
+    }
 
     .lang-btn-hint {
       font-size: 0.75rem;
@@ -416,9 +453,22 @@
     }
 
     @keyframes tap-press {
-      0%, 100% { transform: scale(1) translateY(0);    opacity: 1; }
-      30%       { transform: scale(0.78) translateY(3px); opacity: 0.7; }
-      55%       { transform: scale(1.1) translateY(-2px); opacity: 1; }
+
+      0%,
+      100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+
+      30% {
+        transform: scale(0.78) translateY(3px);
+        opacity: 0.7;
+      }
+
+      55% {
+        transform: scale(1.1) translateY(-2px);
+        opacity: 1;
+      }
     }
 
     .step-body strong {
@@ -497,10 +547,12 @@
       transition: transform 0.22s ease, box-shadow 0.22s ease;
       cursor: default;
     }
+
     .prize-card:hover {
       transform: translateY(-6px) scale(1.03);
       box-shadow: 0 16px 40px rgba(122, 12, 12, 0.18);
     }
+
     .prize-card:hover .p-icon {
       animation: icon-bounce 0.5s ease;
     }
@@ -604,11 +656,13 @@
       transform: translateY(22px);
       transition: opacity 0.55s ease, transform 0.55s ease;
     }
+
     .reveal-left {
       opacity: 0;
       transform: translateX(-22px);
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
+
     .reveal.visible,
     .reveal-left.visible {
       opacity: 1;
@@ -626,30 +680,62 @@
       animation: hstar-float 3.2s ease-in-out infinite;
       animation-delay: var(--delay);
     }
+
     @keyframes hstar-float {
-      0%, 100% { transform: translateY(-50%) rotate(0deg) scale(1); }
-      50%       { transform: translateY(calc(-50% - 11px)) rotate(18deg) scale(1.2); }
+
+      0%,
+      100% {
+        transform: translateY(-50%) rotate(0deg) scale(1);
+      }
+
+      50% {
+        transform: translateY(calc(-50% - 11px)) rotate(18deg) scale(1.2);
+      }
     }
 
     /* Gold rule shimmer */
     @keyframes rule-shimmer {
-      0%   { background-position: -200% center; }
-      100% { background-position:  200% center; }
+      0% {
+        background-position: -200% center;
+      }
+
+      100% {
+        background-position: 200% center;
+      }
     }
 
     /* Step number pop */
     @keyframes num-pop {
-      0%   { transform: scale(1);    }
-      45%  { transform: scale(1.28); }
-      100% { transform: scale(1);    }
+      0% {
+        transform: scale(1);
+      }
+
+      45% {
+        transform: scale(1.28);
+      }
+
+      100% {
+        transform: scale(1);
+      }
     }
 
     /* Prize icon bounce */
     @keyframes icon-bounce {
-      0%   { transform: translateY(0);    }
-      35%  { transform: translateY(-9px); }
-      65%  { transform: translateY(-4px); }
-      100% { transform: translateY(0);    }
+      0% {
+        transform: translateY(0);
+      }
+
+      35% {
+        transform: translateY(-9px);
+      }
+
+      65% {
+        transform: translateY(-4px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
     }
 
     /* Section label sparkle prefix */
@@ -660,17 +746,34 @@
       display: inline-block;
       animation: star-spin 4s linear infinite;
     }
+
     @keyframes star-spin {
-      0%   { transform: rotate(0deg)   scale(1);   }
-      50%  { transform: rotate(180deg) scale(1.3); }
-      100% { transform: rotate(360deg) scale(1);   }
+      0% {
+        transform: rotate(0deg) scale(1);
+      }
+
+      50% {
+        transform: rotate(180deg) scale(1.3);
+      }
+
+      100% {
+        transform: rotate(360deg) scale(1);
+      }
     }
 
     /* CTA box heading subtle glow pulse */
     @keyframes cta-glow {
-      0%, 100% { text-shadow: 0 0 0px rgba(255,255,255,0);    }
-      50%       { text-shadow: 0 0 18px rgba(255,255,255,0.35); }
+
+      0%,
+      100% {
+        text-shadow: 0 0 0px rgba(255, 255, 255, 0);
+      }
+
+      50% {
+        text-shadow: 0 0 18px rgba(255, 255, 255, 0.35);
+      }
     }
+
     .cta-box h2 {
       animation: cta-glow 2.8s ease-in-out infinite;
     }
@@ -679,6 +782,7 @@
     .social-btn {
       transition: transform 0.18s, background 0.15s, border-color 0.15s;
     }
+
     .social-btn:hover {
       transform: translateY(-3px);
     }
@@ -690,11 +794,23 @@
     }
 
     @media (max-width: 600px) {
+
       /* Language links — mobile: hide hint+arrow, show tap icon */
-      .lang-btn-hint  { display: none; }
-      .lang-btn-arrow { display: none; }
-      .lang-btn-tap   { display: inline-block; }
-      .lang-btn { font-size: 0.95rem; }
+      .lang-btn-hint {
+        display: none;
+      }
+
+      .lang-btn-arrow {
+        display: none;
+      }
+
+      .lang-btn-tap {
+        display: inline-block;
+      }
+
+      .lang-btn {
+        font-size: 0.95rem;
+      }
 
       /* Banner */
       .banner-wrap img {
@@ -704,10 +820,22 @@
       }
 
       /* Hero strip */
-      .hero-strip { padding: 24px 0 28px; }
-      .hero-badge  { font-size: 0.8rem; }
-      .hero-title  { font-size: 1.4rem; margin: 0 0 8px; }
-      .hero-sub    { font-size: 0.93rem; }
+      .hero-strip {
+        padding: 24px 0 28px;
+      }
+
+      .hero-badge {
+        font-size: 0.8rem;
+      }
+
+      .hero-title {
+        font-size: 1.4rem;
+        margin: 0 0 8px;
+      }
+
+      .hero-sub {
+        font-size: 0.93rem;
+      }
 
       /* Body */
       .body-wrap {
@@ -721,10 +849,12 @@
         margin-top: 44px;
         margin-bottom: 8px;
       }
+
       /* First heading needs no top push */
-      .body-wrap > .section-label:first-child {
+      .body-wrap>.section-label:first-child {
         margin-top: 0;
       }
+
       .rule {
         margin: 0 0 20px;
       }
@@ -734,19 +864,23 @@
         gap: 10px;
         margin-bottom: 32px;
       }
+
       .step {
         padding: 16px 14px;
         gap: 12px;
       }
+
       .step-num {
         width: 32px;
         height: 32px;
         font-size: 0.88rem;
         flex-shrink: 0;
       }
+
       .step-body h3 {
         font-size: 0.95rem;
       }
+
       .step-body p,
       .step-body ul {
         font-size: 0.9rem;
@@ -757,6 +891,7 @@
         font-size: 0.88rem;
         margin-bottom: 32px;
       }
+
       .dates-table th,
       .dates-table td {
         padding: 10px 12px;
@@ -768,6 +903,7 @@
         gap: 10px;
         margin-bottom: 32px;
       }
+
       .prize-card {
         padding: 20px 16px;
         display: flex;
@@ -775,6 +911,7 @@
         gap: 14px;
         text-align: left;
       }
+
       .prize-card .p-icon {
         font-size: 1.8rem;
         margin-bottom: 0;
@@ -794,9 +931,11 @@
         margin-bottom: 40px;
         border-radius: 14px;
       }
+
       .cta-box h2 {
         font-size: 1.2rem;
       }
+
       .cta-box p {
         font-size: 0.93rem;
       }
@@ -914,19 +1053,28 @@
           <div class="step-body">
             <h3>Record Your Video <span style="font-weight:400;color:var(--muted);">(Important Instructions)</span></h3>
             <ul>
-              <li><strong>Video Framing:</strong> The kid should stand straight while recording and ensure they are clearly visible.</li>
-              <li><strong>Stability:</strong> The phone should be held vertically (portrait mode) and must be kept steady/stable (not shaky) to ensure a high-quality video.</li>
-              <li><strong>Clear Audio:</strong> Record in a quiet place with no background noise. Your voice must be loud and clear.</li>
+              <li><strong>Video Framing:</strong> The kid should stand straight while recording and ensure they are
+                clearly visible.</li>
+              <li><strong>Stability:</strong> The phone should be held vertically (portrait mode) and must be kept
+                steady/stable (not shaky) to ensure a high-quality video.</li>
+              <li><strong>Clear Audio:</strong> Record in a quiet place with no background noise. Your voice must be
+                loud and clear.</li>
               <li><strong>Accuracy:</strong> Make sure you recite both the Hadees and its translation correctly.</li>
             </ul>
             <p style="margin-top:14px;font-weight:600;color:var(--red-deep);">Recitation Protocol:</p>
             <ul>
               <li><strong>Start</strong> the recording by reciting:<br />
-                <span style="font-family:'MuhammadiQuranic','Amiri',serif;font-size:1.15rem;direction:rtl;display:block;text-align:right;margin-top:4px;color:var(--red-deep);line-height:2;word-spacing:0.18em;letter-spacing:0.02em;">أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ</span>
-                <span style="font-family:'MuhammadiQuranic','Amiri',serif;font-size:1.15rem;direction:rtl;display:block;text-align:right;color:var(--red-deep);line-height:2;word-spacing:0.18em;letter-spacing:0.02em;">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
+                <span
+                  style="font-family:'MuhammadiQuranic','Amiri',serif;font-size:1.15rem;direction:rtl;display:block;text-align:right;margin-top:4px;color:var(--red-deep);line-height:2;word-spacing:0.18em;letter-spacing:0.02em;">أَعُوذُ
+                  بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ</span>
+                <span
+                  style="font-family:'MuhammadiQuranic','Amiri',serif;font-size:1.15rem;direction:rtl;display:block;text-align:right;color:var(--red-deep);line-height:2;word-spacing:0.18em;letter-spacing:0.02em;">بِسْمِ
+                  اللهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
               </li>
               <li style="margin-top:8px;"><strong>End</strong> the recording by reciting the full Salawat:<br />
-                <span style="font-family:'MuhammadiQuranic','Amiri',serif;font-size:1.15rem;direction:rtl;display:block;text-align:right;margin-top:4px;color:var(--red-deep);line-height:2;word-spacing:0.18em;letter-spacing:0.02em;">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَآلِ مُحَمَّدٍ وَعَجِّلْ فَرَجَهُمْ وَالْعَنْ أَعْدَاءَهُمْ</span>
+                <span
+                  style="font-family:'MuhammadiQuranic','Amiri',serif;font-size:1.15rem;direction:rtl;display:block;text-align:right;margin-top:4px;color:var(--red-deep);line-height:2;word-spacing:0.18em;letter-spacing:0.02em;">اللَّهُمَّ
+                  صَلِّ عَلَى مُحَمَّدٍ وَآلِ مُحَمَّدٍ وَعَجِّلْ فَرَجَهُمْ وَالْعَنْ أَعْدَاءَهُمْ</span>
               </li>
             </ul>
             <div class="note-box">
@@ -1014,7 +1162,8 @@
         <strong>📩 Submit your video:</strong> <a href="https://wa.me/918070151412" target="_blank"
           rel="noopener">WhatsApp +91 8070 151 412</a><br /><br />
         <strong>📋 Eligible:</strong> Boys up to 14 years old.<br /><br />
-        <strong>🗓️ Deadline:</strong> 20 Zilhajj · Winners announced on 24 Zilhajj (Eid-e-Mubahela).
+        <strong>🗓️ Deadline:</strong> 20<sup>th</sup> Zilhajj · Winners announced on 24<sup>th</sup> Zilhajj
+        (Eid-e-Mubahela).
       </div>
 
       <div class="cta-box reveal">
