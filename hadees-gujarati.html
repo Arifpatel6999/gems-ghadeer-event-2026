@@ -1,136 +1,297 @@
 <!doctype html>
 <html lang="gu">
+
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>અહાદીસ — ગુજરાતી · TSR GEMS Ghadeer Challenge</title>
-<link rel="icon" href="assets/logo.jpg" type="image/jpeg" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Gujarati:wght@400;600;700&display=swap" rel="stylesheet" />
-<style>
-  @font-face {
-    font-family: 'MuhammadiQuranic';
-    src: url('assets/MuhammadiQuranic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-  :root {
-    --red-deep:    #7a0c0c;
-    --red-primary: #991b1b;
-    --red-vivid:   #dc2626;
-    --red-border:  rgba(185, 28, 28, 0.18);
-    --gold:        #f59e0b;
-    --muted:       #6b3232;
-    --bg:          #fff9f9;
-    --card:        #ffffff;
-    --shadow:      0 6px 24px rgba(122, 12, 12, 0.09);
-  }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
-  body { font-family: 'Noto Sans Gujarati', system-ui, sans-serif; background: var(--bg); color: #1c0707; line-height: 1.85; -webkit-font-smoothing: antialiased; }
-  a { color: var(--red-primary); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .container { max-width: 780px; margin: 0 auto; padding: 0 20px; }
-
-  .site-header { background: #ffffff; border-bottom: 1px solid rgba(15,58,71,0.10); padding: 10px 0; position: sticky; top: 0; z-index: 200; box-shadow: 0 2px 14px rgba(15,58,71,0.07); }
-  .site-header-inner { max-width: 1080px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; gap: 16px; }
-  .site-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
-  .site-logo img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
-  .site-logo-name { font-weight: 700; font-size: 1rem; color: #0f3a47; }
-  .site-nav { margin-left: auto; display: flex; align-items: center; gap: 4px; }
-  .site-nav a { font-size: 0.86rem; font-weight: 500; color: #5a6e75; text-decoration: none; padding: 7px 13px; border-radius: 999px; transition: background 0.15s, color 0.15s; }
-  .site-nav a:hover { background: rgba(15,58,71,0.07); color: #0f3a47; text-decoration: none; }
-  .site-nav a.nav-cta { background: #0e6da8; color: #fff; font-weight: 600; }
-  .site-nav a.nav-cta:hover { background: #0a5a8f; color: #fff; }
-  @media (max-width: 600px) { .site-logo-name { display: none; } .site-nav a:not(.nav-cta) { display: none; } }
-
-  .page-header { background: linear-gradient(135deg, #6b0f0f 0%, #991b1b 100%); padding: 36px 0 40px; text-align: center; position: relative; }
-  .page-header::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
-  .lang-badge { display: inline-block; background: rgba(245,158,11,0.18); border: 1px solid rgba(245,158,11,0.45); color: var(--gold); padding: 5px 16px; border-radius: 999px; font-size: 0.82rem; font-weight: 700; margin-bottom: 12px; }
-  .page-header h1 { font-size: 1.65rem; font-weight: 700; color: #fff; margin: 0 0 8px; }
-  .page-header p { color: rgba(255,255,255,0.75); font-size: 0.95rem; margin: 0; }
-
-  .hadees-list { padding: 44px 0 56px; display: flex; flex-direction: column; gap: 24px; }
-  .hadees-card { background: var(--card); border: 1px solid var(--red-border); border-radius: 16px; padding: 28px 28px 24px; box-shadow: var(--shadow); }
-  .hadees-num { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--red-primary), var(--red-vivid)); color: #fff; font-family: 'Inter', system-ui, sans-serif; font-weight: 700; font-size: 0.88rem; margin-bottom: 16px; box-shadow: 0 3px 10px rgba(185,28,28,0.28); }
-  .arabic { font-family: 'MuhammadiQuranic', 'Amiri', serif; font-size: 1.45rem; line-height: 2; direction: rtl; text-align: right; word-spacing: 0.18em; letter-spacing: 0.02em; color: var(--red-deep); border-bottom: 1px solid var(--red-border); padding-bottom: 14px; margin-bottom: 14px; }
-  .translation { font-size: 1.02rem; color: #2a0a0a; margin-bottom: 10px; }
-  .reference { font-size: 0.82rem; color: var(--muted); }
-
-  footer { background: #3d0505; color: rgba(255,248,240,0.55); text-align: center; padding: 20px; font-size: 0.86rem; font-family: 'Inter', system-ui, sans-serif; }
-  footer a { color: var(--gold); }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>અહાદીસ — ગુજરાતી · TSR GEMS Ghadeer Challenge</title>
+  <link rel="icon" href="assets/logo.jpg" type="image/jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/hadees-book.css" />
+  <style>
+    body { font-family: 'Noto Sans Gujarati', system-ui, sans-serif; }
+  </style>
 </head>
+
 <body>
 
-<nav class="site-header">
-  <div class="site-header-inner">
-    <a class="site-logo" href="/">
-      <img src="assets/logo.jpg" alt="TSR GEMS logo" />
-      <span class="site-logo-name">TSR GEMS</span>
-    </a>
-    <div class="site-nav">
-      <a href="event-ghadeer.html">Event</a>
-      <a href="https://www.instagram.com/thestrongrope_gems/" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://wa.me/918070151412" target="_blank" rel="noopener" class="nav-cta">Submit Video</a>
+  <nav class="site-header">
+    <div class="site-header-inner">
+      <a class="site-logo" href="/">
+        <img src="assets/logo.jpg" alt="TSR GEMS logo" />
+        <span class="site-logo-name">TSR GEMS</span>
+      </a>
+      <div class="site-nav">
+        <a href="event-ghadeer.html">Event</a>
+        <a href="https://www.instagram.com/thestrongrope_gems/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://wa.me/918070151412" target="_blank" rel="noopener" class="nav-cta">Submit Video</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <div class="lang-badge">🌐 ગુજરાતી</div>
+      <h1>અહાદીસ — ઈદ-એ-ગ઼દીર ચૅલેન્જ</h1>
+      <p>નીચે આપેલ અહાદીસ માંથી કોઈ એક હદીસ યાદ કરો અને તમારા વીડિઓ માં પઢો.</p>
     </div>
   </div>
-</nav>
 
-<div class="page-header">
-  <div class="container">
-    <div class="lang-badge">🌐 ગુજરાતી</div>
-    <h1>અહાદીસ — ઈદ-એ-ગ઼દીર ચૅલેન્જ</h1>
-    <p>નીચે આપેલ અહાદીસ માંથી કોઈ એક હદીસ યાદ કરો અને તમારા વીડિઓ માં પઢો.</p>
-  </div>
-</div>
+  <main>
+    <section class="book-section">
+      <div class="container">
 
-<main>
-  <div class="container hadees-list">
+        <div class="book-outer">
+          <div class="book" id="book">
 
-    <div class="hadees-card">
-      <div class="hadees-num">1</div>
-      <div class="arabic">قَالَ رَسُوْلُ اللهِ (ص): مَنْ آذَیْ عَلِیّاً فَقَدْ آذَانِیْ</div>
-      <p class="translation">અલ્લાહના રસૂલ (સ.અ.વ.)એ ફરમાવ્યું:<br />"જેણે અલી (અ.સ.) ને અઝિય્યત પહોંચાડી, તેણે ખરેખર મને અઝિય્યત પહોંચાડી."</p>
-      <div class="reference">બિહાર અલ-અન્વાર, ભા. ૨૮, પેજ નં. ૪૧૦</div>
-    </div>
+            <div class="page-left" id="pageLeft">
+              <div class="page-inner">
+                <div class="book-logo">
+                  <img src="assets/logo.jpg" alt="TSR GEMS" />
+                  <span class="book-logo-name">TSR GEMS</span>
+                </div>
+                <div class="hadees-badge" id="hadeesBadge">1</div>
+                <div class="arabic-intro">قَالَ رَسُوْلُ اللّٰهِ (ص):</div>
+                <div class="arabic-wrap">
+                  <div class="arabic" id="arabicText"></div>
+                </div>
+                <div class="page-foot" id="pageNumLeft">1 / 5</div>
+              </div>
+            </div>
 
-    <div class="hadees-card">
-      <div class="hadees-num">2</div>
-      <div class="arabic">قَالَ رَسُوْلُ اللهِ (ص): یَا عَلِیُّ حَاسِدُكَ حَاسِدِیْ وَ حَاسِدِیْ حَاسِدُ اللّٰهِ وَ حَاسِدُ اللّٰهِ فِی النَّارِ</div>
-      <p class="translation">અલ્લાહના રસૂલ (સ.અ.વ.)એ ફરમાવ્યું:<br />"અય અલી (અ.સ.)! આપની સાથે હસદ કરનાર, મારી સાથે હસદ કરનારો છે, અને મારી સાથે હસદ કરનાર, અલ્લાહ સાથે હસદ કરનારો છે, અને અલ્લાહ સાથે હસદ કરનારનું ઠેકાણું જહન્નમ છે."</p>
-      <div class="reference">અમાલી-એ-શૈખ઼ તૂસી (ર.અ.), પેજ નં. ૬૨૪, મજલિસ ૩૦, હદીસ ૧</div>
-    </div>
+            <div class="book-spine"></div>
 
-    <div class="hadees-card">
-      <div class="hadees-num">3</div>
-      <div class="arabic">قَالَ رَسُوْلُ اللهِ (ص): یَا عَلِیُّ سَعِدَ مَنْ تَوَلَّاكَ وَ شَقِیَ مَنْ عَادَاكَ</div>
-      <p class="translation">અલ્લાહના રસૂલ (સ.અ.વ.)એ ફરમાવ્યું:<br />"અય અલી (અ.સ.)! જે શખ્સે આપની વિલાયત ક઼બૂલ કરી, તે જન્નતી છે, અને જેણે આપની સાથે દુશ્મની કરી, તે જહન્નમી છે."</p>
-      <div class="reference">અમાલી-એ-શૈખ઼ સદૂક઼ (ર.અ.), પેજ નં. ૨૩, મજલિસ ૪, હદીસ ૮</div>
-    </div>
+            <div class="page-right" id="pageRight">
+              <div class="page-inner">
+                <div class="page-tag">✦ ભાષાંતર</div>
+                <div class="translation-wrap">
+                  <p class="translation" id="translationText"></p>
+                </div>
+                <div class="page-divider"></div>
+                <div class="reference" id="referenceText"></div>
+                <div class="page-foot" id="pageNumRight">1 / 5</div>
+              </div>
+            </div>
 
-    <div class="hadees-card">
-      <div class="hadees-num">4</div>
-      <div class="arabic">قَالَ رَسُوْلُ اللهِ (ص): یَا عَلِیُّ شِیعَتُكَ شِیعَةُ اللّٰهِ وَ أَنْصَارُكَ أَنْصَارُ اللّٰهِ</div>
-      <p class="translation">અલ્લાહના રસૂલ (સ.અ.વ.)એ ફરમાવ્યું:<br />"અય અલી (અ.સ)! આપના શીઆ અલ્લાહના શીઆ છે, અને આપને મદદ કરનારા અલ્લાહને મદદ કરનારા છે."</p>
-      <div class="reference">અમાલી-એ-શૈખ઼ સદૂક઼ (ર.અ.), પેજ નં. ૨૩, મજલિસ ૪, હદીસ ૮</div>
-    </div>
+            <div class="flip-leaf" id="flipLeaf">
+              <div class="flip-face flip-front" id="flipFront"></div>
+              <div class="flip-face flip-back" id="flipBack"></div>
+            </div>
 
-    <div class="hadees-card">
-      <div class="hadees-num">5</div>
-      <div class="arabic">قَالَ رَسُوْلُ اللهِ (ص): یَا عَلِیُّ فَإِنَّ اللّٰهَ قَدْ بَاهَی بِكَ مَلَائِكَتَهُ</div>
-      <p class="translation">અલ્લાહના રસૂલ (સ.અ.વ.)એ ફરમાવ્યું:<br />"અય અલી (અ.સ.)! બેશક અલ્લાહ આપના કારણે પોતાના ફ઼રિશ્તાઓ પર ફ઼ખ઼્ર વ મુબાહાત કરે છે."</p>
-      <div class="reference">બિહાર અલ-અન્વાર, ભા. ૩૮, પેજ નં. ૧૦૦, હદીસ ૧૯</div>
-    </div>
+          </div>
+        </div>
 
-  </div>
-</main>
+        <!-- Audio will be added when files are ready -->
 
-<footer>
-  <div>© <span id="y"></span> TSR GEMS · <a href="event-ghadeer.html">← Back to Event Page</a></div>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
-</footer>
+        <div class="book-nav">
+          <button class="nav-btn" id="prevBtn" disabled>&#8592; Prev</button>
+          <div class="book-dots" id="bookDots"></div>
+          <button class="nav-btn" id="nextBtn">Next &#8594;</button>
+        </div>
+
+        <p class="swipe-hint">← સ્વાઇપ કરો →</p>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© <span id="y"></span> TSR GEMS · <a href="event-ghadeer.html">← Back to Event Page</a></div>
+    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  </footer>
+
+  <script>
+    const ahadees = [
+      {
+        arabic: "مَنْ آذَیْ عَلِیّاً فَقَدْ آذَانِیْ",
+        translation: `અલ્લાહના રસૂલ <strong>(સ.અ.વ.)</strong>એ ફરમાવ્યું:<br />"જેણે અલી (અ.સ.) ને અઝિય્યત પહોંચાડી, તેણે ખરેખર મને અઝિય્યત પહોંચાડી."`,
+        reference: "બિહાર અલ-અન્વાર, ભા. ૨૮, પેજ નં. ૪૧૦"
+      },
+      {
+        arabic: "یَا عَلِیُّ حَاسِدُكَ حَاسِدِیْ وَ حَاسِدِیْ حَاسِدُ اللّٰهِ وَ حَاسِدُ اللّٰهِ فِی النَّارِ",
+        translation: `અલ્લાહના રસૂલ <strong>(સ.અ.વ.)</strong>એ ફરમાવ્યું:<br />"અય અલી (અ.સ.)! આપની સાથે હસદ કરનાર, મારી સાથે હસદ કરનારો છે, અને મારી સાથે હસદ કરનાર, અલ્લાહ સાથે હસદ કરનારો છે, અને અલ્લાહ સાથે હસદ કરનારનું ઠેકાણું જહન્નમ છે."`,
+        reference: "અમાલી-એ-શૈખ઼ તૂસી (ર.અ.), પેજ નં. ૬૨૪, મજલિસ ૩૦, હદીસ ૧"
+      },
+      {
+        arabic: "یَا عَلِیُّ سَعِدَ مَنْ تَوَلَّاكَ وَ شَقِیَ مَنْ عَادَاكَ",
+        translation: `અલ્લાહના રસૂલ <strong>(સ.અ.વ.)</strong>એ ફરમાવ્યું:<br />"અય અલી (અ.સ.)! જે શખ્સે આપની વિલાયત ક઼બૂલ કરી, તે જન્નતી છે, અને જેણે આપની સાથે દુશ્મની કરી, તે જહન્નમી છે."`,
+        reference: "અમાલી-એ-શૈખ઼ સદૂક઼ (ર.અ.), પેજ નં. ૨૩, મજલિસ ૪, હદીસ ૮"
+      },
+      {
+        arabic: "یَا عَلِیُّ شِیعَتُكَ شِیعَةُ اللّٰهِ وَ أَنْصَارُكَ أَنْصَارُ اللّٰهِ",
+        translation: `અલ્લાહના રસૂલ <strong>(સ.અ.વ.)</strong>એ ફરમાવ્યું:<br />"અય અલી (અ.સ)! આપના શીઆ અલ્લાહના શીઆ છે, અને આપને મદદ કરનારા અલ્લાહને મદદ કરનારા છે."`,
+        reference: "અમાલી-એ-શૈખ઼ સદૂક઼ (ર.અ.), પેજ નં. ૨૩, મજલિસ ૪, હદીસ ૮"
+      },
+      {
+        arabic: "یَا عَلِیُّ فَإِنَّ اللّٰهَ قَدْ بَاهَی بِكَ مَلَائِكَتَهُ",
+        translation: `અલ્લાહના રસૂલ <strong>(સ.અ.વ.)</strong>એ ફરમાવ્યું:<br />"અય અલી (અ.સ.)! બેશક અલ્લાહ આપના કારણે પોતાના ફ઼રિશ્તાઓ પર ફ઼ખ઼્ર વ મુબાહાત કરે છે."`,
+        reference: "બિહાર અલ-અન્વાર, ભા. ૩૮, પેજ નં. ૧૦૦, હદીસ ૧૯"
+      }
+    ];
+
+    const bookEl = document.getElementById('book');
+    const flipLeaf = document.getElementById('flipLeaf');
+    const flipFront = document.getElementById('flipFront');
+    const flipBack = document.getElementById('flipBack');
+    const arabicText = document.getElementById('arabicText');
+    const translText = document.getElementById('translationText');
+    const refText = document.getElementById('referenceText');
+    const badge = document.getElementById('hadeesBadge');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const dotsWrap = document.getElementById('bookDots');
+
+    const FLIP_DUR = 620;
+    let current = 0;
+    let animating = false;
+
+    ahadees.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'book-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Hadees ' + (i + 1));
+      d.addEventListener('click', () => { if (!animating && i !== current) flip(i, i > current ? 'next' : 'prev'); });
+      dotsWrap.appendChild(d);
+    });
+
+    function renderPages(idx) {
+      const h = ahadees[idx];
+      arabicText.textContent = h.arabic;
+      translText.innerHTML = h.translation;
+      refText.textContent = h.reference;
+      badge.textContent = idx + 1;
+      document.getElementById('pageNumLeft').textContent = `${idx + 1} / ${ahadees.length}`;
+      document.getElementById('pageNumRight').textContent = `${idx + 1} / ${ahadees.length}`;
+      prevBtn.disabled = idx === 0;
+      nextBtn.disabled = idx === ahadees.length - 1;
+      dotsWrap.querySelectorAll('.book-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+
+    function leftFaceHTML(idx) {
+      const h = ahadees[idx];
+      return `<div class="page-inner">
+      <div class="book-logo">
+        <img src="assets/logo.jpg" alt="TSR GEMS" />
+        <span class="book-logo-name">TSR GEMS</span>
+      </div>
+      <div class="hadees-badge">${idx + 1}</div>
+      <div class="arabic-intro">قَالَ رَسُوْلُ اللّٰهِ (ص):</div>
+      <div class="arabic-wrap"><div class="arabic">${h.arabic}</div></div>
+      <div class="page-foot" style="color:rgba(245,158,11,0.35);text-align:center;font-family:'Inter',sans-serif">${idx + 1} / ${ahadees.length}</div>
+    </div>`;
+    }
+
+    function rightFaceHTML(idx) {
+      const h = ahadees[idx];
+      return `<div class="page-inner">
+      <div class="page-tag">✦ ભાષાંતર</div>
+      <div class="translation-wrap"><p class="translation">${h.translation}</p></div>
+      <div class="page-divider"></div>
+      <div class="reference">${h.reference}</div>
+      <div class="page-foot" style="color:rgba(120,70,20,0.35);text-align:center;font-family:'Inter',sans-serif">${idx + 1} / ${ahadees.length}</div>
+    </div>`;
+    }
+
+    function flip(targetIdx, dir) {
+      if (animating) return;
+      animating = true;
+
+      const isNext = dir === 'next';
+      const h = ahadees[targetIdx];
+
+      if (isNext) {
+        translText.innerHTML = h.translation;
+        refText.textContent = h.reference;
+        document.getElementById('pageNumRight').textContent = `${targetIdx + 1} / ${ahadees.length}`;
+
+        flipFront.className = 'flip-face flip-front right-face';
+        flipFront.innerHTML = rightFaceHTML(current);
+        flipBack.className = 'flip-face flip-back left-face';
+        flipBack.innerHTML = leftFaceHTML(targetIdx);
+        flipLeaf.style.left = 'calc(50% + 2.5px)';
+        flipLeaf.style.transformOrigin = '-2.5px center';
+      } else {
+        arabicText.textContent = h.arabic;
+        badge.textContent = targetIdx + 1;
+        document.getElementById('pageNumLeft').textContent = `${targetIdx + 1} / ${ahadees.length}`;
+
+        flipFront.className = 'flip-face flip-front left-face';
+        flipFront.innerHTML = leftFaceHTML(current);
+        flipBack.className = 'flip-face flip-back right-face';
+        flipBack.innerHTML = rightFaceHTML(targetIdx);
+        flipLeaf.style.left = '0';
+        flipLeaf.style.transformOrigin = 'calc(100% + 2.5px) center';
+      }
+
+      bookEl.style.perspective = (bookEl.offsetWidth * 3.2) + 'px';
+      flipLeaf.style.display = 'block';
+      flipLeaf.style.transition = 'none';
+      flipLeaf.style.transform = 'rotateY(0deg)';
+      void flipLeaf.offsetWidth;
+
+      flipLeaf.style.transition = `transform ${FLIP_DUR}ms cubic-bezier(0.645, 0.045, 0.355, 1.000)`;
+      flipLeaf.style.transform = isNext ? 'rotateY(-180deg)' : 'rotateY(180deg)';
+
+      function onEnd(e) {
+        if (e.propertyName !== 'transform') return;
+        flipLeaf.removeEventListener('transitionend', onEnd);
+        current = targetIdx;
+
+        if (isNext) {
+          arabicText.textContent = h.arabic;
+          badge.textContent = targetIdx + 1;
+          document.getElementById('pageNumLeft').textContent = `${targetIdx + 1} / ${ahadees.length}`;
+        } else {
+          translText.innerHTML = h.translation;
+          refText.textContent = h.reference;
+          document.getElementById('pageNumRight').textContent = `${targetIdx + 1} / ${ahadees.length}`;
+        }
+
+        prevBtn.disabled = targetIdx === 0;
+        nextBtn.disabled = targetIdx === ahadees.length - 1;
+        dotsWrap.querySelectorAll('.book-dot').forEach((d, i) => d.classList.toggle('active', i === targetIdx));
+        flipLeaf.style.transition = 'none';
+        flipLeaf.style.display = 'none';
+        animating = false;
+      }
+      flipLeaf.addEventListener('transitionend', onEnd);
+    }
+
+    function goNext() { if (current < ahadees.length - 1) flip(current + 1, 'next'); }
+    function goPrev() { if (current > 0) flip(current - 1, 'prev'); }
+
+    prevBtn.addEventListener('click', goPrev);
+    nextBtn.addEventListener('click', goNext);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') goNext();
+      if (e.key === 'ArrowLeft') goPrev();
+    });
+
+    let tx0 = 0, ty0 = 0;
+    bookEl.addEventListener('touchstart', e => {
+      tx0 = e.changedTouches[0].clientX;
+      ty0 = e.changedTouches[0].clientY;
+    }, { passive: true });
+    bookEl.addEventListener('touchend', e => {
+      const dx = tx0 - e.changedTouches[0].clientX;
+      const dy = Math.abs(ty0 - e.changedTouches[0].clientY);
+      if (Math.abs(dx) > 40 && dy < 80) dx > 0 ? goNext() : goPrev();
+    }, { passive: true });
+
+    function setPerspective() {
+      bookEl.style.perspective = (bookEl.offsetWidth * 3.2) + 'px';
+    }
+    window.addEventListener('resize', setPerspective);
+
+    renderPages(0);
+    if (document.fonts) document.fonts.ready.then(setPerspective);
+    else window.addEventListener('load', setPerspective);
+    setPerspective();
+  </script>
 
 </body>
+
 </html>
