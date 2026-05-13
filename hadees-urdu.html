@@ -19,11 +19,13 @@
       font-weight: normal;
       font-style: normal;
     }
+
     .page-header h1,
     .page-header p {
       font-family: 'AlviNastaleeq', 'Amiri', serif;
       direction: rtl;
     }
+
     .page-tag {
       font-family: 'AlviNastaleeq', 'Amiri', serif;
       font-size: 0.7rem;
@@ -34,16 +36,28 @@
       margin-bottom: 6px;
       color: rgba(155, 100, 60, 0.75);
     }
+
     @media (min-width: 640px) {
-      .page-tag { font-size: 0.82rem; }
+      .page-tag {
+        font-size: 0.82rem;
+      }
     }
+
     .translation {
       font-family: 'AlviNastaleeq', 'Amiri', serif;
+      font-size: 0.75rem;
       line-height: 2.0;
       direction: rtl;
       text-align: right;
       letter-spacing: normal;
     }
+
+    @media (min-width: 640px) {
+      .translation {
+        font-size: 1.45rem;
+      }
+    }
+
     .reference {
       font-family: 'AlviNastaleeq', 'Amiri', serif;
       font-size: 0.65rem;
@@ -51,8 +65,11 @@
       text-align: right;
       letter-spacing: normal;
     }
+
     @media (min-width: 640px) {
-      .reference { font-size: 0.72rem; }
+      .reference {
+        font-size: 0.72rem;
+      }
     }
   </style>
 </head>
@@ -220,10 +237,10 @@
       pool.forEach((a, i) => { if (i !== 0) { a.preload = 'auto'; a.load(); } });
     }, 1500));
 
-    const playBtn  = document.getElementById('audioPlayBtn');
+    const playBtn = document.getElementById('audioPlayBtn');
     const progWrap = document.getElementById('audioProgressWrap');
     const progFill = document.getElementById('audioProgressFill');
-    const timeEl   = document.getElementById('audioTime');
+    const timeEl = document.getElementById('audioTime');
     let currentAudio = pool[0];
 
     function fmtTime(s) {
