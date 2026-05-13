@@ -5,17 +5,17 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>احادیث — اردو · TSR GEMS Ghadeer Challenge</title>
-  <link rel="icon" href="assets/logo.jpg" type="image/jpeg" />
+  <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="assets/hadees-book.css" />
+  <link rel="stylesheet" href="assets/css/hadees-book.css" />
   <style>
     @font-face {
       font-family: 'AlviNastaleeq';
-      src: url('assets/AlviNastaleeq.ttf') format('truetype');
+      src: url('assets/fonts/AlviNastaleeq.ttf') format('truetype');
       font-weight: normal;
       font-style: normal;
     }
@@ -62,7 +62,7 @@
   <nav class="site-header">
     <div class="site-header-inner">
       <a class="site-logo" href="/">
-        <img src="assets/logo.jpg" alt="TSR GEMS logo" />
+        <img src="assets/images/logo.jpg" alt="TSR GEMS logo" />
         <span class="site-logo-name">TSR GEMS</span>
       </a>
       <div class="site-nav">
@@ -92,7 +92,7 @@
             <div class="page-left" id="pageLeft">
               <div class="page-inner">
                 <div class="book-logo">
-                  <img src="assets/logo.jpg" alt="TSR GEMS" />
+                  <img src="assets/images/logo.jpg" alt="TSR GEMS" />
                   <span class="book-logo-name">TSR GEMS</span>
                 </div>
                 <div class="hadees-badge" id="hadeesBadge">1</div>
@@ -132,7 +132,13 @@
         <!-- Audio -->
         <div class="audio-bar">
           <span class="audio-bar-label">🎧</span>
-          <audio id="audioPlayer" controls></audio>
+          <button class="audio-play-btn" id="audioPlayBtn" aria-label="Play">▶</button>
+          <div class="audio-track">
+            <div class="audio-progress-wrap" id="audioProgressWrap">
+              <div class="audio-progress-fill" id="audioProgressFill"></div>
+            </div>
+            <span class="audio-time" id="audioTime">0:00</span>
+          </div>
         </div>
 
         <!-- Navigation -->
@@ -195,7 +201,6 @@
     const translText = document.getElementById('translationText');
     const refText = document.getElementById('referenceText');
     const badge = document.getElementById('hadeesBadge');
-    const audio = document.getElementById('audioPlayer');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     const dotsWrap = document.getElementById('bookDots');
@@ -203,6 +208,68 @@
     const FLIP_DUR = 620;
     let current = 0;
     let animating = false;
+
+    /* ── Audio pool: first track loads eagerly, rest load quietly after page ── */
+    const pool = ahadees.map((h, i) => {
+      const a = new Audio();
+      a.preload = i === 0 ? 'auto' : 'none';
+      a.src = h.audio;
+      return a;
+    });
+    window.addEventListener('load', () => setTimeout(() => {
+      pool.forEach((a, i) => { if (i !== 0) { a.preload = 'auto'; a.load(); } });
+    }, 1500));
+
+    const playBtn  = document.getElementById('audioPlayBtn');
+    const progWrap = document.getElementById('audioProgressWrap');
+    const progFill = document.getElementById('audioProgressFill');
+    const timeEl   = document.getElementById('audioTime');
+    let currentAudio = pool[0];
+
+    function fmtTime(s) {
+      s = Math.floor(s);
+      return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+    }
+
+    pool.forEach(a => {
+      a.addEventListener('timeupdate', () => {
+        if (a !== currentAudio) return;
+        progFill.style.width = (a.duration ? a.currentTime / a.duration * 100 : 0) + '%';
+        timeEl.textContent = fmtTime(a.currentTime);
+      });
+      a.addEventListener('ended', () => {
+        if (a !== currentAudio) return;
+        playBtn.textContent = '▶';
+        progFill.style.width = '0%';
+        timeEl.textContent = '0:00';
+      });
+    });
+
+    playBtn.addEventListener('click', () => {
+      if (currentAudio.paused) {
+        currentAudio.play();
+        playBtn.textContent = '⏸';
+      } else {
+        currentAudio.pause();
+        playBtn.textContent = '▶';
+      }
+    });
+
+    progWrap.addEventListener('click', e => {
+      if (!currentAudio.duration) return;
+      const r = progWrap.getBoundingClientRect();
+      currentAudio.currentTime = ((e.clientX - r.left) / r.width) * currentAudio.duration;
+    });
+
+    function switchAudio(idx) {
+      currentAudio.pause();
+      currentAudio = pool[idx];
+      currentAudio.currentTime = 0;
+      playBtn.textContent = '▶';
+      progFill.style.width = '0%';
+      timeEl.textContent = '0:00';
+    }
+
 
     ahadees.forEach((_, i) => {
       const d = document.createElement('button');
@@ -220,9 +287,7 @@
       badge.textContent = idx + 1;
       document.getElementById('pageNumLeft').textContent = `${idx + 1} / ${ahadees.length}`;
       document.getElementById('pageNumRight').textContent = `${idx + 1} / ${ahadees.length}`;
-      audio.pause();
-      audio.src = h.audio;
-      audio.load();
+      switchAudio(idx);
       prevBtn.disabled = idx === 0;
       nextBtn.disabled = idx === ahadees.length - 1;
       dotsWrap.querySelectorAll('.book-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
@@ -232,7 +297,7 @@
       const h = ahadees[idx];
       return `<div class="page-inner">
       <div class="book-logo">
-        <img src="assets/logo.jpg" alt="TSR GEMS" />
+        <img src="assets/images/logo.jpg" alt="TSR GEMS" />
         <span class="book-logo-name">TSR GEMS</span>
       </div>
       <div class="hadees-badge">${idx + 1}</div>
@@ -256,7 +321,8 @@
     function flip(targetIdx, dir) {
       if (animating) return;
       animating = true;
-      audio.pause();
+      currentAudio.pause();
+      playBtn.textContent = '▶';
 
       const isNext = dir === 'next';
       const h = ahadees[targetIdx];
@@ -309,8 +375,7 @@
           document.getElementById('pageNumRight').textContent = `${targetIdx + 1} / ${ahadees.length}`;
         }
 
-        audio.src = h.audio;
-        audio.load();
+        switchAudio(targetIdx);
         prevBtn.disabled = targetIdx === 0;
         nextBtn.disabled = targetIdx === ahadees.length - 1;
         dotsWrap.querySelectorAll('.book-dot').forEach((d, i) => d.classList.toggle('active', i === targetIdx));
@@ -351,6 +416,8 @@
     if (document.fonts) document.fonts.ready.then(setPerspective);
     else window.addEventListener('load', setPerspective);
     setPerspective();
+
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
   </script>
 
 </body>
