@@ -93,6 +93,7 @@ a:hover {
   height: 38px;
   border-radius: 50%;
   object-fit: cover;
+  background: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
@@ -505,7 +506,7 @@ a:hover {
 
 @media (max-width: 390px) {
   .translation {
-    font-size: 0.62rem;
+    font-size: 0.7rem;
     line-height: 1.55;
   }
 }
