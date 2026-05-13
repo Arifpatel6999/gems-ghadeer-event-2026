@@ -503,6 +503,13 @@ a:hover {
   font-weight: 600;
 }
 
+@media (max-width: 390px) {
+  .translation {
+    font-size: 0.62rem;
+    line-height: 1.55;
+  }
+}
+
 @media (min-width: 640px) {
   .translation {
     font-size: 1.35rem;
