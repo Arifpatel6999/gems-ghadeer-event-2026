@@ -210,6 +210,25 @@ a:hover {
   padding: 32px 0 48px;
 }
 
+/* Tablet & desktop: POV room background — book sits in the cupped hands */
+@media (min-width: 640px) {
+  body {
+    background:
+      linear-gradient(rgba(255, 249, 249, 0.10), rgba(255, 249, 249, 0.10)),
+      url('../images/flip-book-bg.jpg') center 30% / cover no-repeat;
+  }
+
+  main {
+    background:
+      linear-gradient(rgba(255, 249, 249, 0.10), rgba(255, 249, 249, 0.10)),
+      url('../images/flip-book-bg.jpg') center 30% / cover no-repeat;
+  }
+
+  .book-section {
+    padding: 60px 0 80px;
+  }
+}
+
 .book-outer {
   width: 100%;
   max-width: 704px;
@@ -764,7 +783,6 @@ footer {
   text-align: center;
   padding: 20px;
   font-size: 0.86rem;
-  margin-top: 16px;
 }
 
 footer a {
