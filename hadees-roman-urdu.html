@@ -32,7 +32,8 @@
 
   <div class="page-header">
     <div class="container">
-      <div class="lang-badge"><img src="https://media.tenor.com/sXP5Vn_VCmYAAAAi/translate-google.gif" alt="Language" style="width:1.4rem;height:1.4rem;object-fit:contain;" /> Roman Urdu</div>
+      <div class="lang-badge"><img src="https://media.tenor.com/sXP5Vn_VCmYAAAAi/translate-google.gif" alt="Language"
+          style="width:1.4rem;height:1.4rem;object-fit:contain;" /> Roman Urdu</div>
       <h1>Ahadees — Eid-e-Ghadeer Challenge</h1>
       <p>Neeche di gayi Ahadees mein se koi ek Hadees yaad karein aur apni video mein parh kar dikhayein.</p>
     </div>
@@ -137,7 +138,7 @@
         audio: "assets/audio/3rd%20JIs%20ne%20Ali%20a%20s%20ki%20wilayat%20qubool%20ki-esv2-100p-bg-m-music-m.mp3"
       },
       {
-        arabic: "یَا عَلِیُّ شِیعَتُكَ شِیعَةُ اللّٰهِ وَ أَنْصَارُكَ أَنْصَارُ اللّٰهِ",
+        arabic: "یَا عَلِیُّ شِيْعَتُكَ شِیعَةُ اللّٰهِ وَ أَنْصَارُكَ أَنْصَارُ اللّٰهِ",
         translation: `Rasool Allah <strong>(Sallallahu Alaihi Wa Aalihi)</strong> ne farmaya:<br />"Ay Ali (A)! Aap ke Shia Allah ke Shia hain, aur aap ke madadgar Allah ke madadgar hain."`,
         reference: "Amali-e-Shaikh Sadooq (R.), S. 23, Majlis 4, Hadees 8",
         audio: "assets/audio/4th%20Ali%20a.s.%20ke%20shiah-esv2-100p-bg-m-music-m.mp3"
@@ -180,10 +181,10 @@
       pool.forEach((a, i) => { if (i !== 0) { a.preload = 'auto'; a.load(); } });
     }, 1500));
 
-    const playBtn  = document.getElementById('audioPlayBtn');
+    const playBtn = document.getElementById('audioPlayBtn');
     const progWrap = document.getElementById('audioProgressWrap');
     const progFill = document.getElementById('audioProgressFill');
-    const timeEl   = document.getElementById('audioTime');
+    const timeEl = document.getElementById('audioTime');
     let currentAudio = pool[0];
 
     function fmtTime(s) {
@@ -286,7 +287,7 @@
       if (animating) return;
       animating = true;
       flipSound.currentTime = 0;
-      flipSound.play().catch(() => {});
+      flipSound.play().catch(() => { });
       currentAudio.pause();
       playBtn.textContent = '▶';
 

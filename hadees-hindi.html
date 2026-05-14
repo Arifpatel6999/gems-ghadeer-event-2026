@@ -13,7 +13,9 @@
     rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/hadees-book.css" />
   <style>
-    body { font-family: 'Noto Sans Devanagari', system-ui, sans-serif; }
+    body {
+      font-family: 'Noto Sans Devanagari', system-ui, sans-serif;
+    }
   </style>
 </head>
 
@@ -35,7 +37,8 @@
 
   <div class="page-header">
     <div class="container">
-      <div class="lang-badge"><img src="https://media.tenor.com/sXP5Vn_VCmYAAAAi/translate-google.gif" alt="Language" style="width:1.4rem;height:1.4rem;object-fit:contain;" /> हिंदी</div>
+      <div class="lang-badge"><img src="https://media.tenor.com/sXP5Vn_VCmYAAAAi/translate-google.gif" alt="Language"
+          style="width:1.4rem;height:1.4rem;object-fit:contain;" /> हिंदी</div>
       <h1>अहादीस — ईद-ए-ग़दीर चैलेंज</h1>
       <p>नीचे दी गई अहादीस में से कोई एक हदीस याद करें और अपने वीडियो में पढ़ें।</p>
     </div>
@@ -134,7 +137,7 @@
         audio: "assets/audio/3rd%20JIs%20ne%20Ali%20a%20s%20ki%20wilayat%20qubool%20ki-esv2-100p-bg-m-music-m.mp3"
       },
       {
-        arabic: "یَا عَلِیُّ شِیعَتُكَ شِیعَةُ اللّٰهِ وَ أَنْصَارُكَ أَنْصَارُ اللّٰهِ",
+        arabic: "یَا عَلِیُّ شِيْعَتُكَ شِیعَةُ اللّٰهِ وَ أَنْصَارُكَ أَنْصَارُ اللّٰهِ",
         translation: `रसूल अल्लाह <strong>(सल्लल्लाहु अलैहि व आलिहि)</strong> ने फ़रमाया:<br />"ऐ अली (अ)! आप के शिया अल्लाह के शिया हैं, और आप के मददगार अल्लाह के मददगार हैं।"`,
         reference: "अमाली-ए-शैख़े सदूक़ (र.), स. २३, मजलिस ४, हदीस ८",
         audio: "assets/audio/4th%20Ali%20a.s.%20ke%20shiah-esv2-100p-bg-m-music-m.mp3"
@@ -177,10 +180,10 @@
       pool.forEach((a, i) => { if (i !== 0) { a.preload = 'auto'; a.load(); } });
     }, 1500));
 
-    const playBtn  = document.getElementById('audioPlayBtn');
+    const playBtn = document.getElementById('audioPlayBtn');
     const progWrap = document.getElementById('audioProgressWrap');
     const progFill = document.getElementById('audioProgressFill');
-    const timeEl   = document.getElementById('audioTime');
+    const timeEl = document.getElementById('audioTime');
     let currentAudio = pool[0];
 
     function fmtTime(s) {
@@ -279,7 +282,7 @@
       if (animating) return;
       animating = true;
       flipSound.currentTime = 0;
-      flipSound.play().catch(() => {});
+      flipSound.play().catch(() => { });
       currentAudio.pause();
       playBtn.textContent = '▶';
 
