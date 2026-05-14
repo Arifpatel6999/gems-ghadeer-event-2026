@@ -513,7 +513,7 @@
       color: #f5d060;
       padding: 5px 16px;
       border-radius: 999px;
-      font-size: 0.76rem;
+      font-size: 0.95rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -566,8 +566,10 @@
       color: #fff;
       padding: 4px 13px;
       border-radius: 999px;
-      font-size: 0.82rem;
+      font-size: 1rem;
       font-weight: 500;
+      display: flex;
+      align-items: center;
     }
 
     .ann-btn {
@@ -783,6 +785,30 @@
       .site-nav a:not(.nav-cta) {
         display: none;
       }
+
+      .ann-pills {
+        justify-content: center;
+      }
+
+      .ann-pill {
+        font-size: 1.1rem;
+        padding: 6px 16px;
+        width: 70%;
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      .ann-pill img {
+        width: 3rem !important;
+        height: 3rem !important;
+      }
+
+      .ann-btn {
+        display: flex;
+        justify-content: center;
+        font-size: 1.1rem;
+        padding: 15px 32px;
+      }
     }
   </style>
 </head>
@@ -819,15 +845,20 @@
         </div>
 
         <div class="ann-content">
-          <span class="ann-badge">🎉 Upcoming Event</span>
+          <span class="ann-badge"><img src="https://media1.tenor.com/m/j4hTU7I8mFEAAAAC/announcement.gif" alt="Gift"
+              style="width:2.4rem;height:2.4rem;object-fit:contain;border-radius:20px;" /> Upcoming Event</span>
           <h2 class="ann-title">Eid-e-Ghadeer:<br /><span class="ann-highlight">Hadees Memorization Challenge!</span>
           </h2>
           <p class="ann-desc">Learn a Hadees, record your video, and get featured on our Instagram! Gift vouchers for
             winners and all participants.</p>
           <div class="ann-pills">
-            <span class="ann-pill">🎁 Gift Vouchers</span>
-            <span class="ann-pill">📱 Boys up to 14</span>
-            <span class="ann-pill">🌐 5 Languages</span>
+            <span class="ann-pill"><img src="https://media.tenor.com/QYkC1yY2Bk4AAAAi/surprise-hello.gif" alt="Gift"
+                style="width:2.4rem;height:2.4rem;object-fit:contain;" /> Gift Vouchers</span>
+            <span class="ann-pill"><img src="https://media.tenor.com/VgiD-p4_GLUAAAAi/boy-cartoon.gif" alt="Gift"
+                style="width:2.4rem;height:2.4rem;object-fit:contain;" /> Boys up to 14</span>
+            <span class="ann-pill"><img src="https://media.tenor.com/sXP5Vn_VCmYAAAAi/translate-google.gif" alt="Gift"
+                style="width:2.4rem;height:2.4rem;object-fit:contain;margin-right: 5px;padding-bottom: 5px;" /> 5
+              Languages</span>
           </div>
           <a class="ann-btn" href="event-ghadeer.html">Join the Challenge Now <span class="ann-btn-arrow">→</span></a>
         </div>
