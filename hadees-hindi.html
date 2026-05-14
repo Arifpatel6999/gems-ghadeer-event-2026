@@ -163,6 +163,9 @@
     let current = 0;
     let animating = false;
 
+    const flipSound = new Audio('assets/audio/page-flip.mp3');
+    flipSound.volume = 0.6;
+
     /* ── Audio pool: first track loads eagerly, rest load quietly after page ── */
     const pool = ahadees.map((h, i) => {
       const a = new Audio();
@@ -275,6 +278,8 @@
     function flip(targetIdx, dir) {
       if (animating) return;
       animating = true;
+      flipSound.currentTime = 0;
+      flipSound.play().catch(() => {});
       currentAudio.pause();
       playBtn.textContent = '▶';
 

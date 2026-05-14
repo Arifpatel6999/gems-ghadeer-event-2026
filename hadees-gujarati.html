@@ -149,6 +149,9 @@
     let current = 0;
     let animating = false;
 
+    const flipSound = new Audio('assets/audio/page-flip.mp3');
+    flipSound.volume = 0.6;
+
     ahadees.forEach((_, i) => {
       const d = document.createElement('button');
       d.className = 'book-dot' + (i === 0 ? ' active' : '');
@@ -198,6 +201,8 @@
     function flip(targetIdx, dir) {
       if (animating) return;
       animating = true;
+      flipSound.currentTime = 0;
+      flipSound.play().catch(() => {});
 
       const isNext = dir === 'next';
       const h = ahadees[targetIdx];
