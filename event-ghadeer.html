@@ -752,6 +752,110 @@
       }
     }
 
+    /* ── Instruction Carousel ── */
+    .instr-carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      margin: 12px 0 18px;
+      background: #f5e8e8;
+      touch-action: pan-y;
+      user-select: none;
+    }
+
+    .instr-track {
+      display: flex;
+      transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+
+    .instr-slide {
+      flex-shrink: 0;
+      width: 100%;
+    }
+
+    .instr-slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .instr-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(122, 12, 12, 0.72);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 34px;
+      height: 34px;
+      font-size: 1.35rem;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .instr-btn:hover,
+    .instr-btn:focus {
+      background: rgba(122, 12, 12, 0.92);
+      outline: none;
+    }
+
+    .instr-prev { left: 7px; }
+    .instr-next { right: 7px; }
+
+    .instr-dots {
+      position: absolute;
+      bottom: 9px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 7px;
+      pointer-events: none;
+    }
+
+    .instr-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.55);
+      border: 1.5px solid rgba(122, 12, 12, 0.45);
+      cursor: pointer;
+      padding: 0;
+      pointer-events: auto;
+      transition: background 0.2s, transform 0.2s, border-color 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .instr-dot.active {
+      background: var(--red-primary);
+      border-color: var(--red-primary);
+      transform: scale(1.3);
+    }
+
+    .instr-counter {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      background: rgba(122, 12, 12, 0.65);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+      pointer-events: none;
+    }
+
     /* Section label sparkle prefix */
     .section-label::before {
       content: "✦ ";
@@ -1067,6 +1171,29 @@
           <div class="step-num">3</div>
           <div class="step-body">
             <h3>Record Your Video <span style="font-weight:400;color:var(--muted);">(Important Instructions)</span></h3>
+
+            <div class="instr-carousel" id="instrCarousel" aria-label="Video recording instructions slideshow">
+              <div class="instr-track" id="instrTrack" role="list">
+                <div class="instr-slide" role="listitem"><img src="assets/images/instructions/instr-1.jpg" alt="Instruction 1 of 6" loading="lazy" /></div>
+                <div class="instr-slide" role="listitem"><img src="assets/images/instructions/instr-2.jpg" alt="Instruction 2 of 6" loading="lazy" /></div>
+                <div class="instr-slide" role="listitem"><img src="assets/images/instructions/instr-3.jpg" alt="Instruction 3 of 6" loading="lazy" /></div>
+                <div class="instr-slide" role="listitem"><img src="assets/images/instructions/instr-4.jpg" alt="Instruction 4 of 6" loading="lazy" /></div>
+                <div class="instr-slide" role="listitem"><img src="assets/images/instructions/instr-5.jpg" alt="Instruction 5 of 6" loading="lazy" /></div>
+                <div class="instr-slide" role="listitem"><img src="assets/images/instructions/instr-6.jpg" alt="Instruction 6 of 6" loading="lazy" /></div>
+              </div>
+              <button class="instr-btn instr-prev" id="instrPrev" aria-label="Previous instruction">&#8249;</button>
+              <button class="instr-btn instr-next" id="instrNext" aria-label="Next instruction">&#8250;</button>
+              <div class="instr-dots" id="instrDots" role="tablist" aria-label="Slide indicators">
+                <button class="instr-dot active" role="tab" aria-label="Slide 1" aria-selected="true"></button>
+                <button class="instr-dot" role="tab" aria-label="Slide 2" aria-selected="false"></button>
+                <button class="instr-dot" role="tab" aria-label="Slide 3" aria-selected="false"></button>
+                <button class="instr-dot" role="tab" aria-label="Slide 4" aria-selected="false"></button>
+                <button class="instr-dot" role="tab" aria-label="Slide 5" aria-selected="false"></button>
+                <button class="instr-dot" role="tab" aria-label="Slide 6" aria-selected="false"></button>
+              </div>
+              <div class="instr-counter" id="instrCounter" aria-live="polite">1 / 6</div>
+            </div>
+
             <ul>
               <li><strong>Video Framing:</strong> The kid should stand straight while recording and ensure they are
                 clearly visible.</li>
@@ -1260,6 +1387,72 @@
           ticking = true;
         }
       }, { passive: true });
+    })();
+  </script>
+
+  <script>
+    /* Instruction carousel */
+    (function () {
+      var carousel = document.getElementById('instrCarousel');
+      var track = document.getElementById('instrTrack');
+      var dots = document.querySelectorAll('#instrDots .instr-dot');
+      var counter = document.getElementById('instrCounter');
+      var TOTAL = 6;
+      var INTERVAL = 3500;
+      var cur = 0;
+      var timer = null;
+
+      function goTo(idx) {
+        cur = ((idx % TOTAL) + TOTAL) % TOTAL;
+        track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+        dots.forEach(function (d, i) {
+          d.classList.toggle('active', i === cur);
+          d.setAttribute('aria-selected', i === cur ? 'true' : 'false');
+        });
+        if (counter) counter.textContent = (cur + 1) + ' / ' + TOTAL;
+      }
+
+      function start() {
+        timer = setInterval(function () { goTo(cur + 1); }, INTERVAL);
+      }
+
+      function stop() {
+        clearInterval(timer);
+        timer = null;
+      }
+
+      function reset() { stop(); start(); }
+
+      document.getElementById('instrPrev').addEventListener('click', function () { goTo(cur - 1); reset(); });
+      document.getElementById('instrNext').addEventListener('click', function () { goTo(cur + 1); reset(); });
+
+      dots.forEach(function (d, i) {
+        d.addEventListener('click', function () { goTo(i); reset(); });
+      });
+
+      /* Swipe */
+      var tx = 0;
+      carousel.addEventListener('touchstart', function (e) {
+        tx = e.touches[0].clientX;
+        stop();
+      }, { passive: true });
+
+      carousel.addEventListener('touchend', function (e) {
+        var dx = e.changedTouches[0].clientX - tx;
+        if (Math.abs(dx) > 38) goTo(dx < 0 ? cur + 1 : cur - 1);
+        start();
+      }, { passive: true });
+
+      /* Pause on desktop hover */
+      carousel.addEventListener('mouseenter', stop);
+      carousel.addEventListener('mouseleave', start);
+
+      /* Pause when tab hidden, resume when visible */
+      document.addEventListener('visibilitychange', function () {
+        document.hidden ? stop() : start();
+      });
+
+      start();
     })();
   </script>
 
