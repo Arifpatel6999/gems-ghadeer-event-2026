@@ -335,6 +335,7 @@
       padding-left: 0.5rem;
       padding-right: 0.5rem;
       width: 100%;
+      overflow: hidden;
     }
 
     .step-body h3 {
@@ -785,7 +786,7 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(122, 12, 12, 0.72);
+      background: rgba(122, 12, 12, 0.30);
       color: #fff;
       border: none;
       border-radius: 50%;
@@ -795,7 +796,7 @@
       line-height: 1;
       cursor: pointer;
       z-index: 10;
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: center;
       transition: background 0.15s;
@@ -805,23 +806,36 @@
 
     .instr-btn:hover,
     .instr-btn:focus {
-      background: rgba(122, 12, 12, 0.92);
+      background: rgba(122, 12, 12, 0.50);
       outline: none;
     }
 
-    .instr-prev { left: 7px; }
-    .instr-next { right: 7px; }
+    @media (min-width: 1024px) {
+      .instr-btn {
+        display: flex;
+      }
+    }
+
+    .instr-prev {
+      left: 7px;
+    }
+
+    .instr-next {
+      right: 7px;
+    }
+
+    .instr-wrap {
+      position: relative;
+    }
 
     .instr-dots {
-      position: absolute;
-      bottom: 9px;
-      left: 0;
-      right: 0;
       display: flex;
       justify-content: center;
       gap: 7px;
+      padding: 8px 0 2px;
       pointer-events: none;
     }
+
 
     .instr-dot {
       width: 8px;
@@ -846,7 +860,7 @@
       position: absolute;
       top: 8px;
       right: 10px;
-      background: rgba(122, 12, 12, 0.65);
+      background: rgba(122, 12, 12, 0.15);
       color: #fff;
       font-size: 0.72rem;
       font-weight: 600;
@@ -854,6 +868,18 @@
       border-radius: 999px;
       letter-spacing: 0.04em;
       pointer-events: none;
+    }
+
+    @media (min-width: 640px) {
+      .instr-wrap {
+        float: right;
+        width: 46%;
+        margin: 0 0 16px 24px;
+      }
+
+      .recitation-protocol-heading {
+        clear: both;
+      }
     }
 
     /* Section label sparkle prefix */
@@ -1172,17 +1198,26 @@
           <div class="step-body">
             <h3>Record Your Video <span style="font-weight:400;color:var(--muted);">(Important Instructions)</span></h3>
 
-            <div class="instr-carousel" id="instrCarousel" aria-label="Video recording instructions slideshow">
-              <div class="instr-track" id="instrTrack" role="list">
-                <div class="instr-slide" role="listitem"><img src="assets/images/instructions/instr-1.jpg" alt="Instruction 1 of 6" loading="lazy" /></div>
-                <div class="instr-slide" role="listitem"><img src="assets/images/instructions/instr-2.jpg" alt="Instruction 2 of 6" loading="lazy" /></div>
-                <div class="instr-slide" role="listitem"><img src="assets/images/instructions/instr-3.jpg" alt="Instruction 3 of 6" loading="lazy" /></div>
-                <div class="instr-slide" role="listitem"><img src="assets/images/instructions/instr-4.jpg" alt="Instruction 4 of 6" loading="lazy" /></div>
-                <div class="instr-slide" role="listitem"><img src="assets/images/instructions/instr-5.jpg" alt="Instruction 5 of 6" loading="lazy" /></div>
-                <div class="instr-slide" role="listitem"><img src="assets/images/instructions/instr-6.jpg" alt="Instruction 6 of 6" loading="lazy" /></div>
+            <div class="instr-wrap">
+              <div class="instr-carousel" id="instrCarousel" aria-label="Video recording instructions slideshow">
+                <div class="instr-track" id="instrTrack" role="list">
+                  <div class="instr-slide" role="listitem"><img src="assets/images/instructions/instr-1.jpg"
+                      alt="Instruction 1 of 6" loading="lazy" /></div>
+                  <div class="instr-slide" role="listitem"><img src="assets/images/instructions/instr-2.jpg"
+                      alt="Instruction 2 of 6" loading="lazy" /></div>
+                  <div class="instr-slide" role="listitem"><img src="assets/images/instructions/instr-3.jpg"
+                      alt="Instruction 3 of 6" loading="lazy" /></div>
+                  <div class="instr-slide" role="listitem"><img src="assets/images/instructions/instr-4.jpg"
+                      alt="Instruction 4 of 6" loading="lazy" /></div>
+                  <div class="instr-slide" role="listitem"><img src="assets/images/instructions/instr-5.jpg"
+                      alt="Instruction 5 of 6" loading="lazy" /></div>
+                  <div class="instr-slide" role="listitem"><img src="assets/images/instructions/instr-6.jpg"
+                      alt="Instruction 6 of 6" loading="lazy" /></div>
+                </div>
+                <button class="instr-btn instr-prev" id="instrPrev" aria-label="Previous instruction">&#8249;</button>
+                <button class="instr-btn instr-next" id="instrNext" aria-label="Next instruction">&#8250;</button>
+                <div class="instr-counter" id="instrCounter" aria-live="polite">1 / 6</div>
               </div>
-              <button class="instr-btn instr-prev" id="instrPrev" aria-label="Previous instruction">&#8249;</button>
-              <button class="instr-btn instr-next" id="instrNext" aria-label="Next instruction">&#8250;</button>
               <div class="instr-dots" id="instrDots" role="tablist" aria-label="Slide indicators">
                 <button class="instr-dot active" role="tab" aria-label="Slide 1" aria-selected="true"></button>
                 <button class="instr-dot" role="tab" aria-label="Slide 2" aria-selected="false"></button>
@@ -1191,7 +1226,6 @@
                 <button class="instr-dot" role="tab" aria-label="Slide 5" aria-selected="false"></button>
                 <button class="instr-dot" role="tab" aria-label="Slide 6" aria-selected="false"></button>
               </div>
-              <div class="instr-counter" id="instrCounter" aria-live="polite">1 / 6</div>
             </div>
 
             <ul>
@@ -1203,7 +1237,8 @@
                 loud and clear.</li>
               <li><strong>Accuracy:</strong> Make sure you recite both the Hadees and its translation correctly.</li>
             </ul>
-            <p style="margin-top:14px;font-weight:600;color:var(--red-deep);">Recitation Protocol:</p>
+            <p class="recitation-protocol-heading" style="margin-top:14px;font-weight:600;color:var(--red-deep);">
+              Recitation Protocol:</p>
             <ul>
               <li><strong>Start</strong> the recording by reciting:<br />
                 <span
@@ -1412,16 +1447,17 @@
         if (counter) counter.textContent = (cur + 1) + ' / ' + TOTAL;
       }
 
-      function start() {
-        timer = setInterval(function () { goTo(cur + 1); }, INTERVAL);
-      }
-
       function stop() {
         clearInterval(timer);
         timer = null;
       }
 
-      function reset() { stop(); start(); }
+      function start() {
+        stop();
+        timer = setInterval(function () { goTo(cur + 1); }, INTERVAL);
+      }
+
+      function reset() { start(); }
 
       document.getElementById('instrPrev').addEventListener('click', function () { goTo(cur - 1); reset(); });
       document.getElementById('instrNext').addEventListener('click', function () { goTo(cur + 1); reset(); });
