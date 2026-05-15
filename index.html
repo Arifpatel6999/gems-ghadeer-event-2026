@@ -810,6 +810,118 @@
         padding: 15px 32px;
       }
     }
+
+    /* ── Featured Reels ── */
+    .reels-section {
+      background: linear-gradient(160deg, #fff8f0 0%, #fef3e2 50%, #fff0f5 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .reels-section::before {
+      content: "⭐ 🌟 ✨ ⭐ 🌟 ✨ ⭐ 🌟 ✨ ⭐";
+      position: absolute;
+      top: 12px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 1rem;
+      opacity: 0.35;
+      letter-spacing: 0.5em;
+      pointer-events: none;
+    }
+
+    .reels-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 8px;
+      align-items: start;
+    }
+
+    .reel-item {
+      min-width: 0;
+      position: relative;
+      padding: 4px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #f59e0b, #ec4899, #8b5cf6, #3b82f6, #10b981);
+      background-size: 300% 300%;
+      animation: reel-border-spin 4s linear infinite;
+      box-shadow: 0 8px 32px rgba(245, 158, 11, 0.25), 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .reel-item:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 16px 40px rgba(245, 158, 11, 0.35), 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    @keyframes reel-border-spin {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .reel-item-inner {
+      border-radius: 15px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .reel-badge {
+      background: linear-gradient(135deg, #f59e0b, #fbbf24);
+      color: #7a2d00;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 5px 10px;
+      border-radius: 15px 15px 0 0;
+    }
+
+    .reel-item .instagram-media {
+      margin: 0 auto !important;
+      min-width: 0 !important;
+      width: 100% !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+    }
+
+    .reels-loading {
+      grid-column: 1 / -1;
+      text-align: center;
+      color: var(--muted);
+      padding: 32px 0;
+      font-size: 0.95rem;
+    }
+
+    .reels-error {
+      grid-column: 1 / -1;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .reels-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 580px) {
+      .reels-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
@@ -822,7 +934,9 @@
         <span class="site-logo-name">TSR GEMS</span>
       </a>
       <div class="site-nav">
-        <a href="event-ghadeer.html" style="display:inline-flex;align-items:center;gap:6px;"><img src="https://media1.tenor.com/m/j4hTU7I8mFEAAAAC/announcement.gif" alt="Announcement" style="width:1.4rem;height:1.4rem;object-fit:contain;border-radius:6px;" /> Ghadeer Event</a>
+        <a href="event-ghadeer.html" style="display:inline-flex;align-items:center;gap:6px;"><img
+            src="https://media1.tenor.com/m/j4hTU7I8mFEAAAAC/announcement.gif" alt="Announcement"
+            style="width:1.4rem;height:1.4rem;object-fit:contain;border-radius:6px;" /> Ghadeer Event</a>
         <a href="https://www.instagram.com/thestrongrope_gems/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://chat.whatsapp.com/DVEWyQxBt62CH8DiyDj6Z2" target="_blank" rel="noopener" class="nav-cta">Join
           WhatsApp</a>
@@ -928,6 +1042,17 @@
     </div>
   </section>
 
+  <section class="reels-section">
+    <div class="container">
+      <h2 class="section-title">Featured <span class="accent">Reels</span></h2>
+      <p class="section-lead">Latest from our Instagram — <a href="https://www.instagram.com/thestrongrope_gems/"
+          target="_blank" rel="noopener">@thestrongrope_gems</a></p>
+      <div class="reels-grid" id="reelsGrid">
+        <div class="reels-loading">Loading reels…</div>
+      </div>
+    </div>
+  </section>
+
   <section>
     <div class="container">
       <h2 class="section-title">Get <span class="accent">Involved</span></h2>
@@ -977,6 +1102,56 @@
       </div>
     </div>
   </section>
+
+  <script async src="https://www.instagram.com/embed.js"></script>
+
+  <script>
+    (function () {
+      const SHEET_ID = '17x9r1_xu2npUjaxx-6a_-ylJSgQlafRXLOu5_A-D90Q';
+      const grid = document.getElementById('reelsGrid');
+      const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
+
+      fetch(url)
+        .then(r => r.text())
+        .then(text => {
+          const json = JSON.parse(text.substring(47, text.length - 2));
+          const rows = json.table.rows || [];
+
+          const reelUrls = rows
+            .map(r => r.c && r.c[0] && r.c[0].v)
+            .filter(v => v && v.startsWith('https://www.instagram.com/'))
+            .slice(0, 3);
+
+          if (reelUrls.length === 0) {
+            grid.innerHTML = '<p class="reels-error">No reels found.</p>';
+            return;
+          }
+
+          grid.innerHTML = reelUrls.map(u => `
+            <div class="reel-item">
+              <div class="reel-item-inner">
+                <div class="reel-badge">⭐ TSR GEMS ⭐</div>
+                <blockquote class="instagram-media"
+                  data-instgrm-permalink="${u}"
+                  data-instgrm-version="14"
+                  style="background:#FFF;border:0;border-radius:0;box-shadow:none;margin:0 auto;max-width:100%;min-width:0;padding:0;width:100%;">
+                </blockquote>
+              </div>
+            </div>
+          `).join('');
+
+          function tryProcess() {
+            if (window.instgrm) window.instgrm.Embeds.process();
+          }
+          tryProcess();
+          setTimeout(tryProcess, 1000);
+          setTimeout(tryProcess, 3000);
+        })
+        .catch(() => {
+          grid.innerHTML = '<p class="reels-error">Could not load reels.</p>';
+        });
+    })();
+  </script>
 
   <footer>
     <div>© <span id="y"></span> TSR GEMS · A youth initiative of <a href="https://thestrongrope.com/" target="_blank"
