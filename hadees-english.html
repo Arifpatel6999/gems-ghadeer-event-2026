@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 
 <head>
@@ -83,7 +83,17 @@
           </div>
         </div>
 
-        <!-- Audio will be added when files are ready -->
+        <!-- Audio -->
+        <div class="audio-bar">
+          <span class="audio-bar-label">🎧</span>
+          <button class="audio-play-btn" id="audioPlayBtn" aria-label="Play">▶</button>
+          <div class="audio-track">
+            <div class="audio-progress-wrap" id="audioProgressWrap">
+              <div class="audio-progress-fill" id="audioProgressFill"></div>
+            </div>
+            <span class="audio-time" id="audioTime">0:00</span>
+          </div>
+        </div>
 
         <div class="book-nav">
           <button class="nav-btn" id="prevBtn" disabled>&#8592; Prev</button>
@@ -107,27 +117,32 @@
       {
         arabic: "مَنْ آذَیْ عَلِیّاً فَقَدْ آذَانِیْ",
         translation: `The Messenger of Allah <strong>(s.a.w.a.)</strong> said:<br />"Whoever troubles Ali (a.s.) has indeed troubled me."`,
-        reference: "Behaar al-Anwaar, vol. 28, p. 410"
+        reference: "Behaar al-Anwaar, vol. 28, p. 410",
+        audio: "assets/audio/english-hadees-1.mp3"
       },
       {
         arabic: "یَا عَلِیُّ حَاسِدُكَ حَاسِدِیْ وَ حَاسِدِیْ حَاسِدُ اللّٰهِ وَ حَاسِدُ اللّٰهِ فِی النَّارِ",
         translation: `The Messenger of Allah <strong>(s.a.w.a.)</strong> said:<br />"O Ali (a.s.), the one who envies you envies me; and the one who envies me envies Allah; and the one who envies Allah will be in the Fire."`,
-        reference: "Al-Amaali of Shaikh Tusi (a.r.), p. 624, Majlis 30, H. 1"
+        reference: "Al-Amaali of Shaikh Tusi (a.r.), p. 624, Majlis 30, H. 1",
+        audio: "assets/audio/english-hadees-2.mp3"
       },
       {
         arabic: "یَا عَلِیُّ سَعِدَ مَنْ تَوَلَّاكَ وَ شَقِیَ مَنْ عَادَاكَ",
         translation: `The Messenger of Allah <strong>(s.a.w.a.)</strong> said:<br />"O Ali (a.s.), fortunate is the one who loves you, and wretched is the one who opposes you."`,
-        reference: "Al-Amaali of Shaikh Saduq (a.r.), p. 24, Majlis 4, H. 8"
+        reference: "Al-Amaali of Shaikh Saduq (a.r.), p. 24, Majlis 4, H. 8",
+        audio: "assets/audio/english-hadees-3.mp3"
       },
       {
         arabic: "یَا عَلِیُّ شِیْعَتُكَ شِیْعَةُ اللّٰهِ وَ أَنْصَارُكَ أَنْصَارُ اللّٰهِ",
         translation: `The Messenger of Allah <strong>(s.a.w.a.)</strong> said:<br />"O Ali (a.s.), your followers are the followers of Allah, and your helpers are the helpers of Allah."`,
-        reference: "Al-Amaali of Shaikh Saduq (a.r.), p. 24, Majlis 4, H. 8"
+        reference: "Al-Amaali of Shaikh Saduq (a.r.), p. 24, Majlis 4, H. 8",
+        audio: "assets/audio/english-hadees-4.mp3"
       },
       {
         arabic: "یَا عَلِیُّ فَإِنَّ اللّٰهَ قَدْ بَاهَی بِكَ مَلَائِكَتَهُ",
         translation: `The Messenger of Allah <strong>(s.a.w.a.)</strong> said:<br />"O Ali (a.s.), indeed Allah takes pride in you before His angels."`,
-        reference: "Behaar al-Anwaar, vol. 38, p. 100, H. 19"
+        reference: "Behaar al-Anwaar, vol. 38, p. 100, H. 19",
+        audio: "assets/audio/english-hadees-5.mp3"
       }
     ];
 
@@ -150,6 +165,64 @@
     const flipSound = new Audio('assets/audio/page-flip.mp3');
     flipSound.volume = 0.6;
 
+    /* ── Audio pool ── */
+    const pool = ahadees.map((h, i) => {
+      const a = new Audio();
+      a.preload = i === 0 ? 'auto' : 'none';
+      a.src = h.audio;
+      return a;
+    });
+    setTimeout(() => pool.slice(1).forEach(a => { a.preload = 'auto'; }), 1500);
+
+    const playBtn = document.getElementById('audioPlayBtn');
+    const progWrap = document.getElementById('audioProgressWrap');
+    const progFill = document.getElementById('audioProgressFill');
+    const timeEl = document.getElementById('audioTime');
+    let currentAudio = pool[0];
+
+    function fmtTime(s) {
+      const m = Math.floor(s / 60);
+      return m + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+    }
+
+    pool.forEach(a => {
+      a.addEventListener('timeupdate', () => {
+        if (a !== currentAudio) return;
+        progFill.style.width = (a.duration ? a.currentTime / a.duration * 100 : 0) + '%';
+        timeEl.textContent = fmtTime(a.currentTime);
+      });
+      a.addEventListener('ended', () => {
+        if (a !== currentAudio) return;
+        playBtn.textContent = '▶';
+        progFill.style.width = '0%';
+      });
+    });
+
+    playBtn.addEventListener('click', () => {
+      if (currentAudio.paused) {
+        currentAudio.play();
+        playBtn.textContent = '⏸';
+      } else {
+        currentAudio.pause();
+        playBtn.textContent = '▶';
+      }
+    });
+
+    progWrap.addEventListener('click', e => {
+      if (!currentAudio.duration) return;
+      const r = progWrap.getBoundingClientRect();
+      currentAudio.currentTime = ((e.clientX - r.left) / r.width) * currentAudio.duration;
+    });
+
+    function switchAudio(idx) {
+      currentAudio.pause();
+      currentAudio = pool[idx];
+      currentAudio.currentTime = 0;
+      playBtn.textContent = '▶';
+      progFill.style.width = '0%';
+      timeEl.textContent = '0:00';
+    }
+
     ahadees.forEach((_, i) => {
       const d = document.createElement('button');
       d.className = 'book-dot' + (i === 0 ? ' active' : '');
@@ -166,6 +239,7 @@
       badge.textContent = idx + 1;
       document.getElementById('pageNumLeft').textContent = `${idx + 1} / ${ahadees.length}`;
       document.getElementById('pageNumRight').textContent = `${idx + 1} / ${ahadees.length}`;
+      switchAudio(idx);
       prevBtn.disabled = idx === 0;
       nextBtn.disabled = idx === ahadees.length - 1;
       dotsWrap.querySelectorAll('.book-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
@@ -201,6 +275,8 @@
       animating = true;
       flipSound.currentTime = 0;
       flipSound.play().catch(() => { });
+      currentAudio.pause();
+      playBtn.textContent = '▶';
 
       const isNext = dir === 'next';
       const h = ahadees[targetIdx];
@@ -253,6 +329,7 @@
           document.getElementById('pageNumRight').textContent = `${targetIdx + 1} / ${ahadees.length}`;
         }
 
+        switchAudio(targetIdx);
         prevBtn.disabled = targetIdx === 0;
         nextBtn.disabled = targetIdx === ahadees.length - 1;
         dotsWrap.querySelectorAll('.book-dot').forEach((d, i) => d.classList.toggle('active', i === targetIdx));
