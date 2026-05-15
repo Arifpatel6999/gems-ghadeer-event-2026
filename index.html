@@ -1111,23 +1111,14 @@
       const grid = document.getElementById('reelsGrid');
       const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
 
-      fetch(url)
-        .then(r => r.text())
-        .then(text => {
-          const json = JSON.parse(text.substring(47, text.length - 2));
-          const rows = json.table.rows || [];
+      const FALLBACK_REELS = [
+        'https://www.instagram.com/reel/DUn2wUmiANV/',
+        'https://www.instagram.com/reel/DXtXUqsiDhZ/',
+        'https://www.instagram.com/reel/DUQXOxBCAO2/'
+      ];
 
-          const reelUrls = rows
-            .map(r => r.c && r.c[0] && r.c[0].v)
-            .filter(v => v && v.startsWith('https://www.instagram.com/'))
-            .slice(0, 3);
-
-          if (reelUrls.length === 0) {
-            grid.innerHTML = '<p class="reels-error">No reels found.</p>';
-            return;
-          }
-
-          grid.innerHTML = reelUrls.map(u => `
+      function renderReels(reelUrls) {
+        grid.innerHTML = reelUrls.map(u => `
             <div class="reel-item">
               <div class="reel-item-inner">
                 <div class="reel-badge">⭐ TSR GEMS ⭐</div>
@@ -1140,15 +1131,34 @@
             </div>
           `).join('');
 
-          function tryProcess() {
-            if (window.instgrm) window.instgrm.Embeds.process();
+        function tryProcess() {
+          if (window.instgrm) window.instgrm.Embeds.process();
+        }
+        tryProcess();
+        setTimeout(tryProcess, 1000);
+        setTimeout(tryProcess, 3000);
+      }
+
+      fetch(url)
+        .then(r => r.text())
+        .then(text => {
+          const json = JSON.parse(text.substring(47, text.length - 2));
+          const rows = json.table.rows || [];
+
+          const reelUrls = rows
+            .map(r => r.c && r.c[0] && r.c[0].v)
+            .filter(v => v && v.startsWith('https://www.instagram.com/'))
+            .slice(0, 3);
+
+          if (reelUrls.length === 0) {
+            renderReels(FALLBACK_REELS);
+            return;
           }
-          tryProcess();
-          setTimeout(tryProcess, 1000);
-          setTimeout(tryProcess, 3000);
+
+          renderReels(reelUrls);
         })
         .catch(() => {
-          grid.innerHTML = '<p class="reels-error">Could not load reels.</p>';
+          renderReels(FALLBACK_REELS);
         });
     })();
   </script>
