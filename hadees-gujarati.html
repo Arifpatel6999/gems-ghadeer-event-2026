@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="gu">
 
 <head>
@@ -88,7 +88,17 @@
           </div>
         </div>
 
-        <!-- Audio will be added when files are ready -->
+        <!-- Audio -->
+        <div class="audio-bar">
+          <span class="audio-bar-label">🎧</span>
+          <button class="audio-play-btn" id="audioPlayBtn" aria-label="Play">▶</button>
+          <div class="audio-track">
+            <div class="audio-progress-wrap" id="audioProgressWrap">
+              <div class="audio-progress-fill" id="audioProgressFill"></div>
+            </div>
+            <span class="audio-time" id="audioTime">0:00</span>
+          </div>
+        </div>
 
         <div class="book-nav">
           <button class="nav-btn" id="prevBtn" disabled>&#8592; Prev</button>
@@ -112,27 +122,32 @@
       {
         arabic: "مَنْ آذَیْ عَلِیّاً فَقَدْ آذَانِیْ",
         translation: `અલ્લાહના રસૂલ <strong>(સ.અ.વ.)</strong>એ ફરમાવ્યું:<br />"જેણે અલી (અ.સ.) ને અઝિય્યત પહોંચાડી, તેણે ખરેખર મને અઝિય્યત પહોંચાડી."`,
-        reference: "બિહાર અલ-અન્વાર, ભા. ૨૮, પેજ નં. ૪૧૦"
+        reference: "બિહાર અલ-અન્વાર, ભા. ૨૮, પેજ નં. ૪૧૦",
+        audio: "assets/audio/gujarati-hadees-1.mp3"
       },
       {
         arabic: "یَا عَلِیُّ حَاسِدُكَ حَاسِدِیْ وَ حَاسِدِیْ حَاسِدُ اللّٰهِ وَ حَاسِدُ اللّٰهِ فِی النَّارِ",
         translation: `અલ્લાહના રસૂલ <strong>(સ.અ.વ.)</strong>એ ફરમાવ્યું:<br />"અય અલી (અ.સ.)! આપની સાથે હસદ કરનાર, મારી સાથે હસદ કરનારો છે, અને મારી સાથે હસદ કરનાર, અલ્લાહ સાથે હસદ કરનારો છે, અને અલ્લાહ સાથે હસદ કરનારનું ઠેકાણું જહન્નમ છે."`,
-        reference: "અમાલી-એ-શૈખ઼ તૂસી (ર.અ.), પેજ નં. ૬૨૪, મજલિસ ૩૦, હદીસ ૧"
+        reference: "અમાલી-એ-શૈખ઼ તૂસી (ર.અ.), પેજ નં. ૬૨૪, મજલિસ ૩૦, હદીસ ૧",
+        audio: "assets/audio/gujarati-hadees-2.mp3"
       },
       {
         arabic: "یَا عَلِیُّ سَعِدَ مَنْ تَوَلَّاكَ وَ شَقِیَ مَنْ عَادَاكَ",
         translation: `અલ્લાહના રસૂલ <strong>(સ.અ.વ.)</strong>એ ફરમાવ્યું:<br />"અય અલી (અ.સ.)! જે શખ્સે આપની વિલાયત ક઼બૂલ કરી, તે જન્નતી છે, અને જેણે આપની સાથે દુશ્મની કરી, તે જહન્નમી છે."`,
-        reference: "અમાલી-એ-શૈખ઼ સદૂક઼ (ર.અ.), પેજ નં. ૨૩, મજલિસ ૪, હદીસ ૮"
+        reference: "અમાલી-એ-શૈખ઼ સદૂક઼ (ર.અ.), પેજ નં. ૨૩, મજલિસ ૪, હદીસ ૮",
+        audio: "assets/audio/gujarati-hadees-3.mp3"
       },
       {
         arabic: "یَا عَلِیُّ شِیْعَتُكَ شِیْعَةُ اللّٰهِ وَ أَنْصَارُكَ أَنْصَارُ اللّٰهِ",
         translation: `અલ્લાહના રસૂલ <strong>(સ.અ.વ.)</strong>એ ફરમાવ્યું:<br />"અય અલી (અ.સ)! આપના શીઆ અલ્લાહના શીઆ છે, અને આપને મદદ કરનારા અલ્લાહને મદદ કરનારા છે."`,
-        reference: "અમાલી-એ-શૈખ઼ સદૂક઼ (ર.અ.), પેજ નં. ૨૩, મજલિસ ૪, હદીસ ૮"
+        reference: "અમાલી-એ-શૈખ઼ સદૂક઼ (ર.અ.), પેજ નં. ૨૩, મજલિસ ૪, હદીસ ૮",
+        audio: "assets/audio/gujarati-hadees-4.mp3"
       },
       {
         arabic: "یَا عَلِیُّ فَإِنَّ اللّٰهَ قَدْ بَاهَی بِكَ مَلَائِكَتَهُ",
         translation: `અલ્લાહના રસૂલ <strong>(સ.અ.વ.)</strong>એ ફરમાવ્યું:<br />"અય અલી (અ.સ.)! બેશક અલ્લાહ આપના કારણે પોતાના ફ઼રિશ્તાઓ પર ફ઼ખ઼્ર વ મુબાહાત કરે છે."`,
-        reference: "બિહાર અલ-અન્વાર, ભા. ૩૮, પેજ નં. ૧૦૦, હદીસ ૧૯"
+        reference: "બિહાર અલ-અન્વાર, ભા. ૩૮, પેજ નં. ૧૦૦, હદીસ ૧૯",
+        audio: "assets/audio/gujarati-hadees-5.mp3"
       }
     ];
 
@@ -155,6 +170,64 @@
     const flipSound = new Audio('assets/audio/page-flip.mp3');
     flipSound.volume = 0.6;
 
+    /* -- Audio pool -- */
+    const pool = ahadees.map((h, i) => {
+      const a = new Audio();
+      a.preload = i === 0 ? 'auto' : 'none';
+      a.src = h.audio;
+      return a;
+    });
+    setTimeout(() => pool.slice(1).forEach(a => { a.preload = 'auto'; }), 1500);
+
+    const playBtn = document.getElementById('audioPlayBtn');
+    const progWrap = document.getElementById('audioProgressWrap');
+    const progFill = document.getElementById('audioProgressFill');
+    const timeEl = document.getElementById('audioTime');
+    let currentAudio = pool[0];
+
+    function fmtTime(s) {
+      const m = Math.floor(s / 60);
+      return m + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+    }
+
+    pool.forEach(a => {
+      a.addEventListener('timeupdate', () => {
+        if (a !== currentAudio) return;
+        progFill.style.width = (a.duration ? a.currentTime / a.duration * 100 : 0) + '%';
+        timeEl.textContent = fmtTime(a.currentTime);
+      });
+      a.addEventListener('ended', () => {
+        if (a !== currentAudio) return;
+        playBtn.textContent = '▶';
+        progFill.style.width = '0%';
+      });
+    });
+
+    playBtn.addEventListener('click', () => {
+      if (currentAudio.paused) {
+        currentAudio.play();
+        playBtn.textContent = '⏸';
+      } else {
+        currentAudio.pause();
+        playBtn.textContent = '▶';
+      }
+    });
+
+    progWrap.addEventListener('click', e => {
+      if (!currentAudio.duration) return;
+      const r = progWrap.getBoundingClientRect();
+      currentAudio.currentTime = ((e.clientX - r.left) / r.width) * currentAudio.duration;
+    });
+
+    function switchAudio(idx) {
+      currentAudio.pause();
+      currentAudio = pool[idx];
+      currentAudio.currentTime = 0;
+      playBtn.textContent = '▶';
+      progFill.style.width = '0%';
+      timeEl.textContent = '0:00';
+    }
+
     ahadees.forEach((_, i) => {
       const d = document.createElement('button');
       d.className = 'book-dot' + (i === 0 ? ' active' : '');
@@ -171,6 +244,7 @@
       badge.textContent = idx + 1;
       document.getElementById('pageNumLeft').textContent = `${idx + 1} / ${ahadees.length}`;
       document.getElementById('pageNumRight').textContent = `${idx + 1} / ${ahadees.length}`;
+      switchAudio(idx);
       prevBtn.disabled = idx === 0;
       nextBtn.disabled = idx === ahadees.length - 1;
       dotsWrap.querySelectorAll('.book-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
@@ -263,6 +337,7 @@
         dotsWrap.querySelectorAll('.book-dot').forEach((d, i) => d.classList.toggle('active', i === targetIdx));
         flipLeaf.style.transition = 'none';
         flipLeaf.style.display = 'none';
+        switchAudio(targetIdx);
         animating = false;
       }
       flipLeaf.addEventListener('transitionend', onEnd);
