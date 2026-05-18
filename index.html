@@ -1147,7 +1147,7 @@
 
           const reelUrls = rows
             .map(r => r.c && r.c[0] && r.c[0].v)
-            .filter(v => v && v.startsWith('https://www.instagram.com/'))
+            .filter(v => v && /^https:\/\/www\.instagram\.com\/reel\/[A-Za-z0-9_-]+\/?$/.test(v))
             .slice(0, 3);
 
           if (reelUrls.length === 0) {
